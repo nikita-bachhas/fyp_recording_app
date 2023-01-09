@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { Audio } from 'expo-av';
 import * as Sharing from 'expo-sharing';
 
-export default function TeacherRecording() {
+export default function TeacherRecording({ navigation, route }) {
   const [recording, setRecording] = React.useState();
   const [recordings, setRecordings] = React.useState([]);
   const [message, setMessage] = React.useState("");
@@ -62,7 +62,7 @@ export default function TeacherRecording() {
           <Text style={styles.fill}>Recording {index + 1} - {recordingLine.duration}</Text>
           <Button style={styles.button} onPress={() => recordingLine.sound.replayAsync()} title="Play"></Button>
           <Button style={styles.button} onPress={() => Sharing.shareAsync(recordingLine.file)} title="Share"></Button>
-          <Button style={styles.button} onPress={() => navigation.navigate('Student')} title="Recreate"></Button> 
+          <Button style={styles.button} onPress={() => navigation.push('Student')} title="Recreate"></Button> 
           {/*Proceed to new page to recreate beat*/}
         </View>
       );
