@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import TeacherRecording from './pages/TeacherRecording';
 import StudentRecording from './pages/StudentRecording';
+import ScorePage from './pages/ScorePage';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ const MyStack = () => {
           options={{title: 'Beats Mobile Application'}}
         />
         <Stack.Screen name="Student" component={StudentRecording} />
+        <Stack.Screen name="Score" component={ScorePage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
