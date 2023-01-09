@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "recording-demo",
-    "slug": "recording-demo",
+    "name": "fyp_recording_app",
+    "slug": "fyp_recording_app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
