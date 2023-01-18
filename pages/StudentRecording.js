@@ -4,14 +4,6 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { Audio } from 'expo-av';
 import * as Sharing from 'expo-sharing';
 
-// const StudentRecording = () => {
-//     return(
-//         <View style={{flex : 1,justifyContent : 'center',alignItems : 'center'}}>
-//             <Text>Student Recording Page</Text>
-//         </View>
-//     )
-// }
-
 export default function StudentRecording({ navigation, route }) {
     const [recording, setRecording] = React.useState();
     const [recordings, setRecordings] = React.useState([]);
@@ -84,6 +76,10 @@ export default function StudentRecording({ navigation, route }) {
           title={recording ? 'Stop Recording' : 'Start Recording'}
           onPress={recording ? stopRecording : startRecording} />
         {getRecordingLines()}
+        <View style={styles.bottomView}>
+        <Text>NTU Final Year Project 2022-2023</Text>
+        <Text>Developed By: Bachhas Nikita</Text>
+        </View>
         <StatusBar style="auto" />
       </View>
     );
@@ -95,6 +91,15 @@ export default function StudentRecording({ navigation, route }) {
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    bottomView: {
+      width: '100%',
+      height: 50,
+      backgroundColor: '#f1f7ff',
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'absolute',
+      bottom: 0,
     },
     row: {
       flexDirection: 'row',

@@ -76,6 +76,10 @@ export default function TeacherRecording({ navigation, route }) {
         title={recording ? 'Stop Recording' : 'Start Recording'}
         onPress={recording ? stopRecording : startRecording} />
       {getRecordingLines()}
+      <View style={styles.bottomView}>
+      <Text>NTU Final Year Project 2022-2023</Text>
+      <Text>Developed By: Bachhas Nikita</Text>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -87,6 +91,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  bottomView: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#f1f7ff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 0,
   },
   row: {
     flexDirection: 'row',

@@ -1,12 +1,46 @@
 import React from "react";
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 const ScorePage = () => {
     return(
-        <View style={{flex : 1,justifyContent : 'center',alignItems : 'center'}}>
+        <View style={styles.container}>
             <Text>This is your immitation score: </Text>
+            <View style={styles.bottomView}>
+            <Text>NTU Final Year Project 2022-2023</Text>
+            <Text>Developed By: Bachhas Nikita</Text>
+            </View>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    bottomView: {
+      width: '100%',
+      height: 50,
+      backgroundColor: '#f1f7ff',
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'absolute',
+      bottom: 0,
+    },
+    row: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    fill: {
+      flex: 1,
+      margin: 16
+    },
+    button: {
+      margin: 16
+    }
+  });
 
 export default ScorePage
