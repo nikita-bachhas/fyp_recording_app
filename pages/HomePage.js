@@ -1,10 +1,11 @@
 import React from "react";
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 
-const ScorePage = () => {
+const Home = ({navigation, route}) => {
     return(
         <View style={styles.container}>
-            <Text>This is your immitation score: </Text>
+            <Text>Home</Text>
+            <Button style={styles.button} onPress={() => navigation.push('Teacher')} title="Live Recordings"></Button> 
             <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
             <Text>Developed By: Bachhas Nikita</Text>
@@ -43,4 +44,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default ScorePage
+export default Home

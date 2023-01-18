@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { Audio } from 'expo-av';
 import * as Sharing from 'expo-sharing';
 
-export default function TeacherRecording({ navigation, route }) {
+export default function LiveTeacherRecording({ navigation, route }) {
   const [recording, setRecording] = React.useState();
   const [recordings, setRecordings] = React.useState([]);
   const [message, setMessage] = React.useState("");
@@ -88,14 +88,14 @@ export default function TeacherRecording({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f1f7ff',
     alignItems: 'center',
     justifyContent: 'center',
   },
   bottomView: {
     width: '100%',
-    height: 50,
-    backgroundColor: '#f1f7ff',
+    height: 65,
+    backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
