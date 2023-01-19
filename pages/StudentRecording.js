@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { Audio } from 'expo-av';
 import * as Sharing from 'expo-sharing';
 
-export default function LiveStudentRecording({ navigation, route }) {
+export default function StudentRecording({ navigation, route }) {
     const [recording, setRecording] = React.useState();
     const [recordings, setRecordings] = React.useState([]);
     const [message, setMessage] = React.useState("");
