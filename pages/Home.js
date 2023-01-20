@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Button, StyleSheet, Text, View, SafeAreaView, Image, ImageBackground, TouchableOpacity, Animated} from 'react-native';
+import { Card } from '@rneui/themed';
+import Emoji from 'react-native-emoji';
 import { useNavigation } from '@react-navigation/native';
 
 //Menu Bar Icons
@@ -129,6 +131,40 @@ export default function Home({navigation, route}){
               color: 'black',
               paddingTop: 20
             }}>{currentTab}</Text>
+
+            <View style={{flexDirection: 'row', paddingTop: 10}}> 
+              <Emoji name="wave" style={{fontSize: 40}} />
+              <Text style={{
+                fontSize: 22,
+                fontWeight: 'bold',
+                color: 'black',
+                paddingTop: 20
+              }}>Hi Username, welcome back!</Text>
+            </View>
+            
+            <View style={{
+              flexDirection: 'row', 
+              paddingTop: 10,
+              borderRadius: 8
+              }}>
+              <TouchableOpacity> 
+                <Card> 
+                  <Text style={{
+                    fontSize: 15,
+                    fontWeight: 'bold',
+                    color: '#405cc4',
+                    }}> Live Recordings</Text>
+                </Card>
+
+                <Card> 
+                  <Text style={{
+                    fontSize: 15,
+                    fontWeight: 'bold',
+                    color: '#405cc4',
+                    }}> Prerecorded Recordings</Text>
+                </Card>
+              </TouchableOpacity>
+            </View>
 
             <Button style={styles.button} onPress={() => navigation.push('Teacher')} title="Live Recordings"></Button> 
             <Button style={styles.button} onPress={() => navigation.push('PrerecordedPage')} title="Prerecorded Recordings"></Button>

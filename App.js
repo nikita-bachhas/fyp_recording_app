@@ -8,12 +8,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import SignUp from './pages/SignUpPage';
 import LiveTeacherRecording from './pages/LiveTeacherRecording';
 import StudentRecording from './pages/StudentRecording';
-import Score from './pages/ScorePage';
-import PrerecordedPage from './pages/PrerecordedPage';
-import Settings from './pages/Settings.js';
-
-//Importing Components
-import Home from './pages/HomePage';
+import Score from './pages/Score';
+import PrerecordedPage from './pages/Prerecorded';
+import Settings from './pages/Settings';
+import Home from './pages/Home';
 
 const Stack = createNativeStackNavigator();
 
