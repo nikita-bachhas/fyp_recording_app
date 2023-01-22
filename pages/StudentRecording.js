@@ -63,7 +63,7 @@ export default function StudentRecording({ navigation, route }) {
             <Button style={styles.button} onPress={() => recordingLine.sound.replayAsync()} title="Play"></Button>
             <Button style={styles.button} onPress={() => Sharing.shareAsync(recordingLine.file)} title="Share"></Button>
             <Button style={styles.button} onPress={() => navigation.push('Score')} title="Compare"></Button> 
-            {/*Proceed to new page to recreate beat*/}
+            {/*Proceed to new page to compare the two recorded beats*/}
           </View>
         );
       });
