@@ -25,11 +25,11 @@ const MyStack = () => {
           // options={{title: 'Beats Mobile Application'}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Teacher" component={LiveTeacherRecording} />
-        <Stack.Screen name="Student" component={StudentRecording} />
+        <Stack.Screen name="Teacher" component={LiveTeacherRecording} options={{ headerShown: false}}/>
+        <Stack.Screen name="Student" component={StudentRecording}/>
         <Stack.Screen name="Score" component={Score} />
-        <Stack.Screen name="PrerecordedPage" component={PrerecordedPage} />
-        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="PrerecordedPage" component={PrerecordedPage} options={{ headerShown: false}}/>
+        <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

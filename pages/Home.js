@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Button, StyleSheet, Text, View, SafeAreaView, Image, ImageBackground, TouchableOpacity, Animated} from 'react-native';
+import { Button, StyleSheet, Text, View, SafeAreaView, TouchableHighlight, ImageBackground, TouchableOpacity, Animated} from 'react-native';
 import { Card } from '@rneui/themed';
 import Emoji from 'react-native-emoji';
 import { useNavigation } from '@react-navigation/native';
 
 //Menu Bar Icons
-import user from '../assets/user.png'
+import logo from '../assets/logo.png'
 import home from '../assets/home.png'
 import liveStreaming from '../assets/live-streaming.png'
 import prerecorded from '../assets/mic.png'
@@ -28,12 +28,12 @@ export default function Home({navigation, route}){
     return(
       <SafeAreaView style={styles.container}>
         <View style={{justifyContent: 'flex-start', padding: 15}}>
-          <Image source={user} style={{
-            width: 50,
-            height: 50,
-            borderRadius: 10,
-            marginTop: 8
-          }}></Image>
+          <View style={{paddingLeft: 5}}> 
+            <ImageBackground 
+              source={logo}
+              style={styles.logoContainer}>
+              </ImageBackground>
+            </View>
 
           <Text style={{
             fontSize: 20,
@@ -142,33 +142,38 @@ export default function Home({navigation, route}){
               }}>Hi Username, welcome back!</Text>
             </View>
             
-            <View style={{
-              flexDirection: 'row', 
-              paddingTop: 10,
-              borderRadius: 8
-              }}>
-              <TouchableOpacity> 
-                <Card> 
-                  <Text style={{
-                    fontSize: 15,
-                    fontWeight: 'bold',
-                    color: '#405cc4',
-                    }}> Live Recordings</Text>
-                </Card>
+            <View style={{flexDirection: 'row'}}> 
 
-                <Card> 
-                  <Text style={{
-                    fontSize: 15,
-                    fontWeight: 'bold',
-                    color: '#405cc4',
-                    }}> Prerecorded Recordings</Text>
-                </Card>
-              </TouchableOpacity>
+              <TouchableHighlight
+                style={styles.submit}
+                onPress={() => navigation.push('Teacher')}
+                underlayColor='#fff'>
+                <Text style={[styles.submitText]}>Live Recordings</Text>
+              </TouchableHighlight>
+
+              <TouchableHighlight
+                style={styles.submit}
+                onPress={() => navigation.push('PrerecordedPage')}
+                underlayColor='#fff'>
+                <Text style={[styles.submitText]}>Prerecorded Recordings</Text>
+              </TouchableHighlight>
+
             </View>
 
-            <Button style={styles.button} onPress={() => navigation.push('Teacher')} title="Live Recordings"></Button> 
-            <Button style={styles.button} onPress={() => navigation.push('PrerecordedPage')} title="Prerecorded Recordings"></Button>
+            <TouchableHighlight style={styles.scoreTable}> 
+              <View>
+                <Text style={{
+                  fontSize: 17,
+                  fontWeight: 'bold',
+                  color: '#1f3872',
+                  paddingLeft: 5
+                  }}> Imitation Scores: </Text>
 
+                <Text style={styles.noScoresToDisplayText}> You currently have no scores to display.</Text>
+                <Text style={styles.toGetStartText}> To get started, click on either Live Recordings or Prereocrded Recordings.</Text>
+              </View>
+            </TouchableHighlight>
+          
           </Animated.View>
           <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
@@ -246,5 +251,54 @@ const styles = StyleSheet.create({
     height: 20,
     tintColor: 'black',
     marginTop: 40,
+  },
+  logoContainer:{
+    width: 150, 
+    height: 54,
+    tintColor: 'black',
+    marginTop: 10,
+  }, 
+  submit: {
+    marginRight: 20,
+    marginLeft: 10,
+    marginTop: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff',
+    height: 100, 
+    width: 150,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  submitText: {
+    color: '#1f3872',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 17
+  }, 
+  scoreTable: {
+    marginRight: 20,
+    marginLeft: 10,
+    marginTop: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff',
+    height: 420, 
+    width: 335,
+  },
+  noScoresToDisplayText: {
+    color: 'black',
+    textAlign: 'center',
+    paddingTop: 100,
+  }, 
+  toGetStartText: {
+    color: 'black',
+    textAlign: 'center',
   }
 });
