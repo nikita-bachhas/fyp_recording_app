@@ -38,13 +38,13 @@ export default function Home({navigation, route}){
           <Text style={{
             fontSize: 20,
             fontWeight: 'bold',
-            color: '#405cc4',
+            color: '#1f3872',
             marginTop: 20
           }}> Username </Text>
 
           <Text style={{
             marginTop: 6,
-            color: '#405cc4',
+            color: '#1f3872',
             marginLeft: 5 
           }}>Student</Text>
 
