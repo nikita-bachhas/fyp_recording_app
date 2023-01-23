@@ -4,7 +4,7 @@ import { Text, View, StyleSheet } from 'react-native';
 const PrerecordedPage = () => {
     return(
         <View style={styles.container}>
-            <Text>Prerecorded Page</Text>
+            <Text>Pre-recorded Page</Text>
             <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
             <Text>Developed By: Bachhas Nikita</Text>

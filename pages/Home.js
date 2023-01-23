@@ -135,11 +135,11 @@ export default function Home({navigation, route}){
             <View style={{flexDirection: 'row', paddingTop: 10}}> 
               <Emoji name="wave" style={{fontSize: 40}} />
               <Text style={{
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: 'bold',
                 color: 'black',
                 paddingTop: 20
-              }}>Hi Username, welcome back!</Text>
+              }}>Hi Username, welcome to Beats!</Text>
             </View>
             
             <View style={{flexDirection: 'row'}}> 
@@ -155,7 +155,7 @@ export default function Home({navigation, route}){
                 style={styles.submit}
                 onPress={() => navigation.push('PrerecordedPage')}
                 underlayColor='#fff'>
-                <Text style={[styles.submitText]}>Prerecorded Recordings</Text>
+                <Text style={[styles.submitText]}>Pre-recorded Recordings</Text>
               </TouchableHighlight>
 
             </View>
@@ -170,7 +170,7 @@ export default function Home({navigation, route}){
                   }}> Imitation Scores: </Text>
 
                 <Text style={styles.noScoresToDisplayText}> You currently have no scores to display.</Text>
-                <Text style={styles.toGetStartText}> To get started, click on either Live Recordings or Prereocrded Recordings.</Text>
+                <Text style={styles.toGetStartText}> To get started, click on either Live Recordings or Pre-recorded Recordings.</Text>
               </View>
             </TouchableHighlight>
           
