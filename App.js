@@ -12,6 +12,7 @@ import Score from './pages/Score';
 import PrerecordedPage from './pages/Prerecorded';
 import Settings from './pages/Settings';
 import Home from './pages/Home';
+import DjangoTutorial from './pages/DjangoTutorial';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ const MyStack = () => {
         <Stack.Screen name="Score" component={Score} />
         <Stack.Screen name="PrerecordedPage" component={PrerecordedPage} options={{ headerShown: false}}/>
         <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false}}/>
+        <Stack.Screen name="DjangoTutorial" component={DjangoTutorial} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

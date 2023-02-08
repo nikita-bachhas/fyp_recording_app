@@ -16,6 +16,9 @@ import logout from '../assets/logout.png'
 import menu from '../assets/menu.png'
 import close from '../assets/close.png'
 
+//Importing components
+import PreviousRecordingTable from "../components/PreviousRecordingsTable";
+
 export default function Home({navigation, route}){
     const [currentTab, setCurrentTab] = React.useState("Home");
     //To get the current status of the menu:
@@ -56,6 +59,7 @@ export default function Home({navigation, route}){
             {TabButton(currentTab, setCurrentTab, "Live Recordings", liveStreaming, "Teacher")}
             {TabButton(currentTab, setCurrentTab, "Pre-recorded Recordings", prerecorded, "PrerecordedPage")}
             {TabButton(currentTab, setCurrentTab, "Settings", settings, "Settings")}
+            {/* {TabButton(currentTab, setCurrentTab, "Django Tutorial", settings, "DjangoTutorial")} */}
           </View>
 
           <View>
@@ -159,6 +163,7 @@ export default function Home({navigation, route}){
               </TouchableHighlight>
 
             </View>
+            
 
             <TouchableHighlight style={styles.scoreTable}> 
               <View>
@@ -171,6 +176,7 @@ export default function Home({navigation, route}){
 
                 <Text style={styles.noScoresToDisplayText}> You currently have no scores to display.</Text>
                 <Text style={styles.toGetStartText}> To get started, click on either Live Recordings or Pre-recorded Recordings.</Text>
+                {/* <PreviousRecordingTable/> */}
               </View>
             </TouchableHighlight>
           

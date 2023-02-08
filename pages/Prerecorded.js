@@ -1,10 +1,11 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
+import PreviousRecordingTable from "../components/PreviousRecordingsTable";
 
 const PrerecordedPage = () => {
     return(
         <View style={styles.container}>
-            <Text>Pre-recorded Page</Text>
+            <PreviousRecordingTable/>
             <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
             <Text>Developed By: Bachhas Nikita</Text>
