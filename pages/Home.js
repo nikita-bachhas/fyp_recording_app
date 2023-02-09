@@ -19,7 +19,7 @@ import close from '../assets/close.png'
 //Importing components
 import PreviousRecordingTable from "../components/PreviousRecordingsTable";
 
-export default function Home({navigation, route}){
+export default function Home({navigation}){
     const [currentTab, setCurrentTab] = React.useState("Home");
     //To get the current status of the menu:
     const [showMenu, setShowMenu] = React.useState(false);
@@ -56,8 +56,8 @@ export default function Home({navigation, route}){
               //Tab Bar Buttons...
             }
             {TabButton(currentTab, setCurrentTab, "Home", home, "Home")}
-            {TabButton(currentTab, setCurrentTab, "Live Recordings", liveStreaming, "Teacher")}
             {TabButton(currentTab, setCurrentTab, "Pre-recorded Recordings", prerecorded, "PrerecordedPage")}
+            {TabButton(currentTab, setCurrentTab, "Live Recordings", liveStreaming, "Teacher")}
             {TabButton(currentTab, setCurrentTab, "Settings", settings, "Settings")}
             {/* {TabButton(currentTab, setCurrentTab, "Django Tutorial", settings, "DjangoTutorial")} */}
           </View>
@@ -139,27 +139,27 @@ export default function Home({navigation, route}){
             <View style={{flexDirection: 'row', paddingTop: 10}}> 
               <Emoji name="wave" style={{fontSize: 40}} />
               <Text style={{
-                fontSize: 20,
+                fontSize: 19,
                 fontWeight: 'bold',
                 color: 'black',
                 paddingTop: 20
-              }}>Hi Username, welcome to Beats!</Text>
+              }}>Hi Nikita7856, welcome to Beats!</Text>
             </View>
             
             <View style={{flexDirection: 'row'}}> 
 
               <TouchableHighlight
                 style={styles.submit}
-                onPress={() => navigation.push('Teacher')}
+                onPress={() => navigation.push('PrerecordedPage')}
                 underlayColor='#fff'>
-                <Text style={[styles.submitText]}>Live Recordings</Text>
+                <Text style={[styles.submitText]}>Pre-recorded Recordings</Text>
               </TouchableHighlight>
 
               <TouchableHighlight
                 style={styles.submit}
-                onPress={() => navigation.push('PrerecordedPage')}
+                onPress={() => navigation.push('Teacher')}
                 underlayColor='#fff'>
-                <Text style={[styles.submitText]}>Pre-recorded Recordings</Text>
+                <Text style={[styles.submitText]}>Live Recordings</Text>
               </TouchableHighlight>
 
             </View>
@@ -175,7 +175,7 @@ export default function Home({navigation, route}){
                   }}> Imitation Scores: </Text>
 
                 <Text style={styles.noScoresToDisplayText}> You currently have no scores to display.</Text>
-                <Text style={styles.toGetStartText}> To get started, click on either Live Recordings or Pre-recorded Recordings.</Text>
+                <Text style={styles.toGetStartText}> To get started, click on either Pre-recorded Recordings or Live Recordings.</Text>
                 {/* <PreviousRecordingTable/> */}
               </View>
             </TouchableHighlight>
