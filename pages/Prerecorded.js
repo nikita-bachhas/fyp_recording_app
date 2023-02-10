@@ -31,7 +31,7 @@ const PrerecordedPage = ({navigation}) => {
               color: 'black',
               paddingTop: 90,
               paddingLeft: 10,
-            }}>Pre-Recorded Recordings</Text>
+            }}>Pre-recorded Recordings</Text>
 
           <ScrollView contentContainerStyle={styles.contentContainer}>
           
@@ -42,7 +42,9 @@ const PrerecordedPage = ({navigation}) => {
                 paddingLeft: 8
               }}> Select or search for a pre-recorded recording to get started</Text>
 
-          {/* <SearchBarComponent/> */}
+          <View style={styles.searchBarContainer}> 
+            <SearchBarComponent/>
+          </View>
 
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
@@ -217,7 +219,7 @@ const styles = StyleSheet.create({
     },
     submit: {
       marginRight: 15,
-      marginLeft: 10,
+      marginLeft: 15,
       marginTop: 20,
       paddingTop: 20,
       paddingBottom: 20,
@@ -239,7 +241,12 @@ const styles = StyleSheet.create({
     contentContainer: {
       paddingVertical: 5,
       paddingBottom: 75
-    }
+    },
+    searchBarContainer:{
+      paddingTop: 20,
+      paddingLeft: 10,
+      marginRight: 10
+    } 
   });
 
 export default PrerecordedPage
