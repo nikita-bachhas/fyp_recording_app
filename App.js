@@ -6,13 +6,15 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import LoginStudentorTeacher from './pages/LoginPageStudentorTeacher';
 // import Login from './pages/LoginPage';
 // import SignUp from './pages/SignUpPage';
+// import DjangoTutorial from './pages/DjangoTutorial';
 import LiveTeacherRecording from './pages/LiveTeacherRecording';
 import StudentRecording from './pages/StudentRecording';
 import Score from './pages/Score';
 import PrerecordedPage from './pages/Prerecorded';
 import Settings from './pages/Settings';
 import Home from './pages/Home';
-import DjangoTutorial from './pages/DjangoTutorial';
+import PrerecordedInformationPage from './pages/PrerecordedInformation';
+import PrerecordedStudentPage from './pages/PrerecordedStudent';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +33,8 @@ const MyStack = () => {
         <Stack.Screen name="Score" component={Score} />
         <Stack.Screen name="PrerecordedPage" component={PrerecordedPage} options={{ headerShown: false}}/>
         <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false}}/>
-        <Stack.Screen name="DjangoTutorial" component={DjangoTutorial} options={{ headerShown: false}}/>
+        <Stack.Screen name="PrerecordedInformationPage" component={PrerecordedInformationPage} options={{ headerShown: false}}/>
+        <Stack.Screen name="PrerecordedStudentPage" component={PrerecordedStudentPage} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
