@@ -1,14 +1,16 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
 import { useRoute } from "@react-navigation/native";
+import PlayPrerecordedRecording from "../components/playPrerecordedRecording";
 
 export default function PrerecordedInformationPage() {
     const route = useRoute();
 
     return(
         <View style={styles.container}>
-            <Text>Prerecorded Student Page</Text>
+            <Text>Prerecorded Information Page</Text>
             <Text> {route.params.SongTitle} </Text>
+            <PlayPrerecordedRecording/>
             <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
             <Text>Developed By: Bachhas Nikita</Text>

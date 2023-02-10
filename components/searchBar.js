@@ -20,10 +20,10 @@ const SearchBarComponent = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'White',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10
+    borderRadius: 12
   }
 });
 
