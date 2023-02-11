@@ -28,7 +28,7 @@ export default function PlayPrerecordedRecording(props) {
   return (
     <View style={styles.container}>
       <Button title="Play Sound" onPress={playSound} />
-      <Text> {props.songToPlay} </Text>
+      {/* <Text> {props.songToPlay} </Text> */}
     </View>
   );
 }
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: 150,
-    maxHeight: 50,
+    maxHeight: 40,
     marginTop: 10
   },
 });
