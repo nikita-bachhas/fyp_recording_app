@@ -2,13 +2,14 @@ import * as React from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { Audio } from 'expo-av';
 
-export default function PlayPrerecordedRecording() {
+export default function PlayPrerecordedRecording(props) {
   const [sound, setSound] = React.useState();
 
   async function playSound() {
     console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync( require('../assets/BreadNButter92bpm.mp3')
     );
+
     setSound(sound);
 
     console.log('Playing Sound');
@@ -27,6 +28,7 @@ export default function PlayPrerecordedRecording() {
   return (
     <View style={styles.container}>
       <Button title="Play Sound" onPress={playSound} />
+      <Text> {props.songToPlay} </Text>
     </View>
   );
 }
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: 150,
-    maxHeight: 50
+    maxHeight: 50,
+    marginTop: 10
   },
 });

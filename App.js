@@ -13,8 +13,8 @@ import Score from './pages/Score';
 import PrerecordedPage from './pages/Prerecorded';
 import Settings from './pages/Settings';
 import Home from './pages/Home';
-import PrerecordedInformationPage from './pages/PrerecordedInformation';
-import PrerecordedStudentPage from './pages/PrerecordedStudent';
+import PrerecordedImitationPage from './pages/PrerecordedImitation';
+import PrerecordedErrorPage from './pages/PrerecordedError';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,8 +33,8 @@ const MyStack = () => {
         <Stack.Screen name="Score" component={Score} />
         <Stack.Screen name="PrerecordedPage" component={PrerecordedPage} options={{ headerShown: false}}/>
         <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false}}/>
-        <Stack.Screen name="PrerecordedInformationPage" component={PrerecordedInformationPage} options={{ headerShown: false}}/>
-        <Stack.Screen name="PrerecordedStudentPage" component={PrerecordedStudentPage} options={{ headerShown: false}}/>
+        <Stack.Screen name="PrerecordedImitationPage" component={PrerecordedImitationPage} options={{ headerShown: false}}/>
+        <Stack.Screen name="PrerecordedErrorPage" component={PrerecordedErrorPage} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

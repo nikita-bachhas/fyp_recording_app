@@ -49,14 +49,14 @@ const PrerecordedPage = ({navigation}) => {
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: 'Madagascar 3 Afro Circus'})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: 'Madagascar 3 Afro Circus'})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Madagascar 3: Afro Circus</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: 'Fleetwood Mac Tusk'})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: 'Fleetwood Mac Tusk'})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Fleetwood Mac: Tusk</Text>
             </TouchableHighlight>
@@ -65,14 +65,14 @@ const PrerecordedPage = ({navigation}) => {
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Phil Collins You Can't Hurry Love"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Phil Collins You Can't Hurry Love"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Phil Collins: You Can't Hurry Love</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Bread & Butter"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Bread & Butter"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Bread & Butter</Text>
             </TouchableHighlight>
@@ -81,14 +81,14 @@ const PrerecordedPage = ({navigation}) => {
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Big Bell Bounce"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Big Bell Bounce"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Big Bell Bounce</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Hit Hat Hotness"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Hit Hat Hotness"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Hit Hat Hotness</Text>
             </TouchableHighlight>
@@ -97,14 +97,14 @@ const PrerecordedPage = ({navigation}) => {
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Terrific 2 Beat"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Terrific 2 Beat"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Terrific 2 Beat</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Tom Tom Time"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Tom Tom Time"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Tom Tom Time</Text>
             </TouchableHighlight>
@@ -113,14 +113,14 @@ const PrerecordedPage = ({navigation}) => {
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Useful Upbeats"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Useful Upbeats"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Useful Upbeats</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Beatle Beats"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Beatle Beats"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Beatle Beats</Text>
             </TouchableHighlight>
@@ -129,14 +129,14 @@ const PrerecordedPage = ({navigation}) => {
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Stir the Sauce"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Stir the Sauce"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Stir the Sauce</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Quirkly Quarters"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Quirkly Quarters"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Quirkly Quarters</Text>
             </TouchableHighlight>
@@ -145,14 +145,14 @@ const PrerecordedPage = ({navigation}) => {
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Jazz Jam"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Jazz Jam"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Jazz Jam</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Twist & Twirl"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Twist & Twirl"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Twist & Twirl</Text>
             </TouchableHighlight>
@@ -161,14 +161,14 @@ const PrerecordedPage = ({navigation}) => {
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Spacey Stuff"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Spacey Stuff"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Spacey Stuff</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedInformationPage', {SongTitle: "Waltzy WorldV2"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Waltzy WorldV2"})}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Waltzy WorldV2</Text>
             </TouchableHighlight>
