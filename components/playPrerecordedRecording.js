@@ -5,6 +5,8 @@ import { Audio } from 'expo-av';
 export default function PlayPrerecordedRecording(props) {
   const [sound, setSound] = React.useState();
 
+  const songToPlay = props.songToPlay
+
   async function playSound() {
     console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync( require('../assets/BreadNButter92bpm.mp3')
@@ -28,7 +30,7 @@ export default function PlayPrerecordedRecording(props) {
   return (
     <View style={styles.container}>
       <Button title="Play Sound" onPress={playSound} />
-      {/* <Text> {props.songToPlay} </Text> */}
+      {/* <Text> {songToPlay} </Text> */}
     </View>
   );
 }
