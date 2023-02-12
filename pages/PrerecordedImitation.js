@@ -1,8 +1,8 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableHighlight, Modal, Button, useState} from 'react-native';
+import { Text, View, StyleSheet, TouchableHighlight, TouchableOpacity, Button} from 'react-native';
 import { useRoute } from "@react-navigation/native";
-// import CountDown from "react-native-countdown-component";
 import PlayPrerecordedRecording from "../components/playPrerecordedRecording";
+import PopupInstruction from "../components/popupInstruction";
 
 export default function PrerecordedImitationPage() {
   
@@ -12,8 +12,6 @@ export default function PrerecordedImitationPage() {
     
   const [intervalId, setIntervalId] = React.useState(null)
 
-  const [modalVisible, setModalVisible] = React.useState(true);
-
   async function timer () {
     if (counter > 0) {
       const id = setInterval(() => setCounter(counter => counter - 1), 1000);
@@ -22,25 +20,23 @@ export default function PrerecordedImitationPage() {
     }
   }
 
+  const leftButtonClickedHandler = () => {
+    console.log('You have tapped the left button');
+    // do something
+  };
+
+  const rightButtonClickedHandler = () => {
+    console.log('You have tapped the right button');
+    // do something
+  };
+
   return(
     <View style={styles.container}>
 
       <View style={[styles.topContainer]}>
         <Text style={[styles.songTitleText]}> {route.params.SongTitle} </Text>
-
+  
         <PlayPrerecordedRecording songToPlay = {route.params.SongTitle} />
-            
-        <Modal
-          transparent = {true} visible={modalVisible}>
-          <View style = {{backgroundColor: "#000000aa", flex: 1}}>
-            <View style = {{backgroundColor: "#fff", flex: 1, marginTop: 280, marginBottom: 290, marginRight:50, marginLeft: 50, padding: 40, borderRadius: 10, flex: 1}}> 
-              <Text style={[styles.instructionsText]}>Press "Play Sound" to listen to the beat.</Text>
-              <Text style={[styles.instructionsText]}>To imitate the beat, press "Recreate" and start tapping once the countdown timer reaches to 0.</Text>
-              <Text style={[styles.instructionsText]}>Once done, press "Stop".</Text>
-              <Button title="Close" onPress={() => setModalVisible(false)}/>
-            </View>
-          </View>
-        </Modal>
             
         <View style={{flexDirection: 'row'}}> 
           <TouchableHighlight
@@ -58,16 +54,21 @@ export default function PrerecordedImitationPage() {
           </TouchableHighlight>
         </View>
 
-            {/* <CountDown
-              size={35}
-              until={3}
-              timeToShow={['S']}
-              digitStyle={{backgroundColor: '#FFF'}}
-              digitTxtStyle={{color: '#1f3872'}}
-              timeLabels={{m: null, s: null}}
-            /> */}
-
         <Text style={[styles.timerText]}>Start Tapping In: {counter}</Text>
+
+        <PopupInstruction/>
+
+          <TouchableOpacity
+            onPress={leftButtonClickedHandler}
+            style={styles.roundButton1}>
+            <Text>Left</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={rightButtonClickedHandler}
+            style={styles.roundButton2}>
+            <Text>Right</Text>
+          </TouchableOpacity>
 
       </View>
 
@@ -119,13 +120,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: 'bold',
       fontSize: 20
-    }, 
-    instructionsText: {
-      color: '#000',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: 17, 
-    }, 
+    },
     submitText: {
       color: '#1f3872',
       textAlign: 'center',
@@ -137,7 +132,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: 'bold',
       fontSize: 25,
-      paddingTop: 20
+      paddingTop: 20,
     }, 
     submit: {
       marginRight: 15,
@@ -153,5 +148,29 @@ const styles = StyleSheet.create({
       width: 150,
       justifyContent: 'center',
       alignItems: 'center'
+    },
+    roundButton1: {
+      marginBottom: 20,
+      width: 200,
+      height: 200,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 100,
+      backgroundColor: '#fff',
+      borderColor: "#ccc",
+      borderWidth: 2
+    },
+    roundButton2: {
+      marginBottom: 80,
+      width: 200,
+      height: 200,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 100,
+      backgroundColor: '#fff',
+      borderColor: "#ccc",
+      borderWidth: 2
     },
   });
