@@ -1,10 +1,10 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableHighlight, TouchableOpacity, Button} from 'react-native';
+import { Text, View, StyleSheet, TouchableHighlight, TouchableOpacity} from 'react-native';
 import { useRoute } from "@react-navigation/native";
 import PlayPrerecordedRecording from "../components/playPrerecordedRecording";
 import PopupInstruction from "../components/popupInstruction";
 
-export default function PrerecordedImitationPage() {
+export default function PrerecordedImitationPage({navigation}) {
   
   const route = useRoute();
 
@@ -12,6 +12,10 @@ export default function PrerecordedImitationPage() {
     
   const [intervalId, setIntervalId] = React.useState(null)
 
+  const LeftArray = []
+
+  const RightArray = []
+  
   async function timer () {
     if (counter > 0) {
       const id = setInterval(() => setCounter(counter => counter - 1), 1000);
@@ -20,13 +24,31 @@ export default function PrerecordedImitationPage() {
     }
   }
 
+  // async function addItemtoLeftArray () {
+  //   if (rightArray > 0) {
+  //     const id = setInterval(() => setCounter(counter => counter - 1), 1000);
+  //     setIntervalId(id)
+  //     console.log("Starting Timer", id);
+  //   }
+  // }
+
+  // async function addItemtoRightArray () {
+  //   if (rightArray > 0) {
+  //     const id = setInterval(() => setCounter(counter => counter - 1), 1000);
+  //     setIntervalId(id)
+  //     console.log("Starting Timer", id);
+  //   }
+  // }
+
   const leftButtonClickedHandler = () => {
-    console.log('You have tapped the left button');
+    LeftArray.push(1);
+    console.log('You have tapped the left button', LeftArray);
     // do something
   };
 
   const rightButtonClickedHandler = () => {
-    console.log('You have tapped the right button');
+    RightArray.push(1);
+    console.log('You have tapped the right button', RightArray);
     // do something
   };
 
@@ -48,7 +70,7 @@ export default function PrerecordedImitationPage() {
 
           <TouchableHighlight
             style={styles.submit}
-            onPress={timer}
+            onPress={() => navigation.push('PrerecordedErrorPage')}
             underlayColor='#fff'>
             <Text style={[styles.submitText]}>Stop</Text>
           </TouchableHighlight>
