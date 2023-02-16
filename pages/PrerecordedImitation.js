@@ -4,27 +4,39 @@ import { useRoute } from "@react-navigation/native";
 import PlayPrerecordedRecording from "../components/playPrerecordedRecording";
 import PopupInstruction from "../components/popupInstruction";
 
-export default function PrerecordedImitationPage({navigation}) {
+const PrerecordedImitationPage = ({navigation}) => {
   
   const route = useRoute();
-
-  const [counter, setCounter] = React.useState(3);
-    
-  const [intervalId, setIntervalId] = React.useState(null)
 
   const LeftArray = []
 
   const RightArray = []
-  
-  async function timer () {
-    if (counter > 0) {
-      const id = setInterval(() => setCounter(counter => counter - 1), 1000);
-      setIntervalId(id)
-      console.log("Starting Timer", id);
-    }
+
+  const [counter, setCounter] = React.useState(3);
+    
+  const timer = () => {
+    let interval = setInterval(() => {
+      setCounter(lastTimerCount => {
+          lastTimerCount <= 1 && clearInterval(interval)
+          return lastTimerCount - 1
+      })
+    }, 1000) //each count lasts for a second
+    //cleanup the interval on complete
+    return () => clearInterval(interval)
   }
 
-  // async function addItemtoLeftArray () {
+  // React.useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     setCounter(lastTimerCount => {
+  //         lastTimerCount <= 1 && clearInterval(interval)
+  //         return lastTimerCount - 1
+  //     })
+  //   }, 1000) //each count lasts for a second
+  //   //cleanup the interval on complete
+  //   return () => clearInterval(interval)
+  // }, []);
+
+  // async function addItemtoRightArray () {
   //   if (rightArray > 0) {
   //     const id = setInterval(() => setCounter(counter => counter - 1), 1000);
   //     setIntervalId(id)
@@ -32,11 +44,11 @@ export default function PrerecordedImitationPage({navigation}) {
   //   }
   // }
 
-  // async function addItemtoRightArray () {
-  //   if (rightArray > 0) {
-  //     const id = setInterval(() => setCounter(counter => counter - 1), 1000);
-  //     setIntervalId(id)
-  //     console.log("Starting Timer", id);
+  // const addItemtoArrays = () => {
+  //   if (counter < 0) {
+  //     LeftArray.push(0);
+  //     RightArray.push(0);
+  //     console.log('Not tapping any button', LeftArray, RightArray);
   //   }
   // }
 
@@ -61,19 +73,19 @@ export default function PrerecordedImitationPage({navigation}) {
         <PlayPrerecordedRecording songToPlay = {route.params.SongTitle} />
             
         <View style={{flexDirection: 'row'}}> 
-          <TouchableHighlight
+          <TouchableOpacity
             style={styles.submit}
             onPress={timer}
             underlayColor='#fff'>
             <Text style={[styles.submitText]}>Recreate</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
 
-          <TouchableHighlight
+          <TouchableOpacity
             style={styles.submit}
-            onPress={() => navigation.push('PrerecordedErrorPage')}
+            onPress={() => navigation.push('PrerecordedErrorPage', {LeftArray: LeftArray}, {RightArray: RightArray})}
             underlayColor='#fff'>
             <Text style={[styles.submitText]}>Stop</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
 
         <Text style={[styles.timerText]}>Start Tapping In: {counter}</Text>
@@ -196,3 +208,5 @@ const styles = StyleSheet.create({
       borderWidth: 2
     },
   });
+
+export default PrerecordedImitationPage
