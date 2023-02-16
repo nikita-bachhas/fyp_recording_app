@@ -1,7 +1,12 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
 
-const PrerecordedErrorPage = () => {
+const RecordingComparison = () => {
+    const PreRecordedLeftArray = []
+    const PreRecordedRightArray = []
+    const StudentLeftArray = []
+    const StudentRightArray = []
+
     return(
         <View style={styles.container}>
             <Text>Prerecorded Error</Text>
@@ -43,4 +48,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default PrerecordedErrorPage
+export default RecordingComparison
