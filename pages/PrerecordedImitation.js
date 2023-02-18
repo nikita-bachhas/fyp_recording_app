@@ -1,14 +1,14 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableHighlight, TouchableOpacity} from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import { useRoute } from "@react-navigation/native";
-import PlayPrerecordedRecording from "../components/playPrerecordedRecording";
-import PopupInstruction from "../components/popupInstruction";
+import PlayPrerecordedRecording from "../components/PlayPrerecordedRecording";
+import PopupInstruction from "../components/PopupInstruction";
 
 const PrerecordedImitationPage = ({navigation}) => {
   
   const route = useRoute();
 
-  const LeftArray = []
+  // const LeftArray = []
 
   const RightArray = []
 
@@ -22,41 +22,59 @@ const PrerecordedImitationPage = ({navigation}) => {
       })
     }, 1000) //each count lasts for a second
     //cleanup the interval on complete
+    console.log("Starting Countdown Now");
     return () => clearInterval(interval)
   }
 
-  // React.useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     setCounter(lastTimerCount => {
-  //         lastTimerCount <= 1 && clearInterval(interval)
-  //         return lastTimerCount - 1
-  //     })
-  //   }, 1000) //each count lasts for a second
-  //   //cleanup the interval on complete
-  //   return () => clearInterval(interval)
-  // }, []);
+  const [LeftArray, setLeftArrayy] = React.useState([]);
 
-  // async function addItemtoRightArray () {
-  //   if (rightArray > 0) {
-  //     const id = setInterval(() => setCounter(counter => counter - 1), 1000);
-  //     setIntervalId(id)
-  //     console.log("Starting Timer", id);
-  //   }
+  React.useEffect(() => {
+    let arrayInterval = setInterval(() => {
+      setLeftArrayy(lastArrayCount => {
+        lastArrayCount <= 1 && clearInterval(arrayInterval)
+          return lastArrayCount + 1
+      })
+    }, 1000) //each count lasts for a second
+    //cleanup the interval on complete
+    // console.log(LeftArray);
+    return () => clearInterval(arrayInterval)
+  }, []);
+
+  // const noLeftButtonClickedHandler = () => {
+  //   let arrayInterval = setInterval(() => {
+  //     setLeftArrayy(lastArrayCount => {
+  //         lastArrayCount <= 1 && clearInterval(arrayInterval)
+  //         return lastArrayCount + 1
+  //     })
+  //   }, 1000) //Each beat is counted at every milisecond
+  //   //cleanup the interval on complete
+  //   console.log('You have tapped the left button', LeftArray);
+  //   return () => clearInterval(arrayInterval)
   // }
 
-  // const addItemtoArrays = () => {
-  //   if (counter < 0) {
-  //     LeftArray.push(0);
-  //     RightArray.push(0);
-  //     console.log('Not tapping any button', LeftArray, RightArray);
-  //   }
+  // const leftButtonClickedHandler = () => {
+  //   let arrayInterval = setInterval(() => {
+  //     setLeftArrayy(lastArrayCount => {
+  //         lastArrayCount <= 1 && clearInterval(arrayInterval)
+  //         return lastArrayCount + 2
+  //     })
+  //   }, 1000) //Each beat is counted at every milisecond
+  //   //cleanup the interval on complete
+  //   console.log('You have tapped the left button', LeftArray);
+  //   return () => clearInterval(arrayInterval)
   // }
 
   const leftButtonClickedHandler = () => {
-    LeftArray.push(1);
+    LeftArray.push(2);
     console.log('You have tapped the left button', LeftArray);
     // do something
   };
+
+  // const noLeftButtonClickedHandler = () => {
+  //   LeftArray.push(0);
+  //   console.log('You have tapped the left button', LeftArray);
+  //   // do something
+  // };
 
   const rightButtonClickedHandler = () => {
     RightArray.push(1);
@@ -82,7 +100,7 @@ const PrerecordedImitationPage = ({navigation}) => {
 
           <TouchableOpacity
             style={styles.submit}
-            onPress={() => navigation.push('PrerecordedErrorPage', {LeftArray: LeftArray}, {RightArray: RightArray})}
+            onPress={() => navigation.push('PrerecordedErrorPage', {SongTitle: route.params.SongTitle}, {LeftArray: LeftArray}, {RightArray: RightArray})}
             underlayColor='#fff'>
             <Text style={[styles.submitText]}>Stop</Text>
           </TouchableOpacity>

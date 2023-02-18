@@ -1,10 +1,16 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
+import { useRoute } from "@react-navigation/native";
+import RecordingComparison from "../components/RecordingComparison";
 
 const PrerecordedErrorPage = () => {
+  const route = useRoute()
+
     return(
         <View style={styles.container}>
-            <Text>Prerecorded Error</Text>
+            <Text>Your Comparison score for: </Text>
+            <Text style={[styles.songTitleText]}> {route.params.SongTitle} </Text>
+            <RecordingComparison songToPlay = {route.params.SongTitle}/>
             <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
             <Text>Developed By: Bachhas Nikita</Text>
@@ -40,7 +46,13 @@ const styles = StyleSheet.create({
     },
     button: {
       margin: 16
-    }
+    }, 
+    songTitleText: {
+      color: '#1f3872',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 20
+    },
   });
 
 export default PrerecordedErrorPage

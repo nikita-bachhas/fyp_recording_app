@@ -1,51 +1,55 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
+import PrerecordedRecordings from '../data/PrerecordedRecordings.json';
 
-const RecordingComparison = () => {
-    const PreRecordedLeftArray = []
-    const PreRecordedRightArray = []
+const RecordingComparison = (props) => {
+
+    //Coming dynamically
+    const songToPlay = props.songToPlay
     const StudentLeftArray = []
     const StudentRightArray = []
 
+  
+    // async function Comparison(){
+    const Comparison = () => {
+      for (let i = 0; i < PrerecordedRecordings.length; i++) {
+        //From the JSON file
+        const name = PrerecordedRecordings[i].SongTitle
+        if (name == songToPlay){
+          const PreRecordedLeftArray = PrerecordedRecordings[i].LeftArray
+          const PreRecordedRightArray = PrerecordedRecordings[i].RightArray
+          console.log(songToPlay, name, StudentLeftArray, PreRecordedLeftArray, StudentRightArray, PreRecordedRightArray); 
+          return("Twilight Breaking Dawn Part 1")
+        }
+        else{
+          console.log("Not current Track; proceed to next track"); 
+        }
+      }
+    }
+
     return(
         <View style={styles.container}>
-            <Text>Prerecorded Error</Text>
-            <View style={styles.bottomView}>
-            <Text>NTU Final Year Project 2022-2023</Text>
-            <Text>Developed By: Bachhas Nikita</Text>
-            </View>
+            <Text>{songToPlay}</Text>
+            <Text style={[styles.songTitleText]}>{<Comparison/>}</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#f1f7ff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    bottomView: {
-      width: '100%',
-      height: 65,
-      backgroundColor: '#fff',
-      justifyContent: 'center',
-      alignItems: 'center',
-      position: 'absolute',
-      bottom: 0,
-    },
-    row: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    fill: {
-      flex: 1,
-      margin: 16
-    },
-    button: {
-      margin: 16
-    }
-  });
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 300,
+    maxHeight: 40,
+    marginTop: 10
+  },
+  songTitleText: {
+    color: '#1f3872',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+});
 
 export default RecordingComparison

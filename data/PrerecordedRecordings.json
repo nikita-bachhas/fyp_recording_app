@@ -1,0 +1,112 @@
+[
+    {
+        "SongTitle": "Madagascar 3 Afro Circus",
+        "PathAddress": "../assets/Madagascar3AfroCircus.mp3",
+        "Duration":"0:08",
+        "LeftArray":[0,0,0,0,0],
+        "RightArray": [0,0,0,0,0]
+    },
+    {
+        "SongTitle": "Fleetwood Mac Tusk",
+        "PathAddress": "../assets/FleetwoodMacTusk.mp3",
+        "Duration": "",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Phil Collins You Can't Hurry Love",
+        "PathAddress": "../assets/PhilCollinsYouCan'tHurryLove.mp3",
+        "Duration": "",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Bread & Butter",
+        "PathAddress": "../assets/BreadNButter92bpm.mp3",
+        "Duration": "0:22",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Big Bell Bounce",
+        "PathAddress": "../assets/BigBellBounce98bpm.mp3",
+        "Duration": "0:22",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Hit Hat Hotness",
+        "PathAddress":  "../assets/HiHatHotness100bpm.mp3",
+        "Duration": "0:20",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Terrific 2 Beat",
+        "PathAddress": "../assets/Terrific2Beat105bpm.mp3",
+        "Duration": "0:19",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Tom Tom Time",
+        "PathAddress": "../assets/TomTomTime88bpm.mp3",
+        "Duration": "0:24",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Useful Upbeats",
+        "PathAddress": "../assets/UsefulUpbeats95bpm.mp3",
+        "Duration": "0:23",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Beatle Beats",
+        "PathAddress": "../assets/BeatleBeats100bpm.mp3",
+        "Duration": "0:21"
+    },
+    {
+        "SongTitle": "Stir the Sauce",
+        "PathAddress": "../assets/StirtheSauce80bpm.mp3",
+        "Duration": "0:26",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Quirkly Quarters",
+        "PathAddress": "../assets/QuirkyQuarters85bpm.mp3",
+        "Duration": "0:25",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Jazz Jam",
+        "PathAddress": "../assets/JazzJam95bpm.mp3",
+        "Duration": "0:23",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Twist & Twirl", 
+        "PathAddress": "../assets/TwistNTwirl100bpm.mp3",
+        "Duration": "0:41",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Spacey Stuff",
+        "PathAddress": "../assets/SpaceyStuff105bpm.mp3",
+        "Duration": "0:20",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
+        "SongTitle": "Waltzy WorldV2", 
+        "PathAddress": "../assets/WaltzyWorldV2105bpm.mp3",
+        "Duration": "0:29",
+        "LeftArray":[],
+        "RightArray": []
+    }
+]
