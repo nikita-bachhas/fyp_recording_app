@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
 import { useRoute } from "@react-navigation/native";
-import RecordingComparison from "../components/RecordingComparison";
+import ComparisonAlgorithm from "../components/ComparisonAlgorithm";
 
 const PrerecordedErrorPage = () => {
   const route = useRoute()
@@ -10,7 +10,7 @@ const PrerecordedErrorPage = () => {
         <View style={styles.container}>
             <Text>Your Comparison score for: </Text>
             <Text style={[styles.songTitleText]}> {route.params.SongTitle} </Text>
-            <RecordingComparison songToPlay = {route.params.SongTitle}/>
+            <ComparisonAlgorithm songToPlay = {route.params.SongTitle}/>
             <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
             <Text>Developed By: Bachhas Nikita</Text>
