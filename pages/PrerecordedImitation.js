@@ -5,9 +5,8 @@ import PlayPrerecordedRecording from "../components/PlayPrerecordedRecording";
 import PopupInstruction from "../components/PopupInstruction";
 
 const PrerecordedImitationPage = ({navigation}) => {
-  
   const route = useRoute();
-
+  
   // const LeftArray = []
 
   const RightArray = []
@@ -86,12 +85,12 @@ const PrerecordedImitationPage = ({navigation}) => {
     <View style={styles.container}>
 
       <View style={[styles.topContainer]}>
-        <Text style={[styles.songTitleText]}> {route.params.SongTitle} </Text>
+        <Text style={[styles.songTitleText]}> {route.params.SongTitle}</Text>
   
-        <PlayPrerecordedRecording songToPlay = {route.params.SongTitle} />
+        <PlayPrerecordedRecording SongToPlay = {route.params.SongTitle}/>
             
         <View style={{flexDirection: 'row'}}> 
-          <TouchableOpacity
+          <TouchableOpacity 
             style={styles.submit}
             onPress={timer}
             underlayColor='#fff'>
