@@ -1,46 +1,125 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { Audio } from 'expo-av';
-import PrerecordedRecordings from '../data/PrerecordedRecordings.json';
 
 export default function PlayPrerecordedRecording(props) {
   const [sound, setSound] = React.useState();
 
   const SongToPlay = props.SongToPlay
-  const songPath = '../assets/BreadNButter92bpm.mp3'
-
-  const GetSongData = () => {
-    
-    for (let i = 0; i < PrerecordedRecordings.length; i++) {
-      //From the JSON file
-      const name = PrerecordedRecordings[i].SongTitle
-    
-      if (name == SongToPlay){
-        const SongPath = PrerecordedRecordings[i].PathAddress
-        
-        console.log(SongToPlay, SongPath);
-        return(SongPath)
-      }
-      else{
-        console.log("Not current Track; proceed to next track"); 
-      }
-    }
-
-    const DefaultSongPath = '../assets/BreadNButter92bpm.mp3'
-    return(DefaultSongPath)
-  }
-
-  // const songPath = GetSongData()
 
   async function playSound() {
-    console.log('Loading Sound');
-    const { sound } = await Audio.Sound.createAsync( require(songPath)
-    );
-
-    setSound(sound);
-
-    console.log('Playing Sound');
-    await sound.playAsync();
+    if (SongToPlay ==  "Bread & Butter"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/BreadNButter92bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Big Bell Bounce"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/BigBellBounce98bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Hit Hat Hotness"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/HiHatHotness100bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Terrific 2 Beat"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/Terrific2Beat105bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Tom Tom Time"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/TomTomTime88bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Useful Upbeats"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/UsefulUpbeats95bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Beatle Beats"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/BeatleBeats100bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Stir the Sauce"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/StirtheSauce80bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Quirkly Quarters"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/QuirkyQuarters85bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Jazz Jam"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/JazzJam95bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Twist & Twirl"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/TwistNTwirl100bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Spacey Stuff"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/SpaceyStuff105bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Waltzy WorldV2"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/WaltzyWorldV2105bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else{
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/BreadNButter92bpm.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
   }
 
   React.useEffect(() => {
@@ -55,7 +134,6 @@ export default function PlayPrerecordedRecording(props) {
   return (
     <View style={styles.container}>
       <Button title="Play Sound" onPress={playSound} />
-      <Text> {<GetSongData/>} </Text>
     </View>
   );
 }
@@ -65,7 +143,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 150,
+    width: 200,
     maxHeight: 40,
     marginTop: 10
   },
