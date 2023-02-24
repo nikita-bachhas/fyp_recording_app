@@ -6,12 +6,12 @@ import PopupInstruction from "../components/PopupInstruction";
 
 const PrerecordedImitationPage = ({navigation}) => {
   const route = useRoute();
-  
-  // const LeftArray = []
-
-  const RightArray = []
 
   const [counter, setCounter] = React.useState(3);
+
+  const [LeftArray, setLeftArray] = React.useState([]);
+  
+  const [RightArray, setRightArray] = React.useState([]);
     
   const timer = () => {
     let interval = setInterval(() => {
@@ -24,56 +24,29 @@ const PrerecordedImitationPage = ({navigation}) => {
     console.log("Starting Countdown Now");
     return () => clearInterval(interval)
   }
-
-  const [LeftArray, setLeftArrayy] = React.useState([]);
+  
+  React.useEffect(() => {
+    let interval;
+    interval = setInterval(() => {
+      setLeftArray(oldArr => [...oldArr, "0"]);
+      }, 100);
+    return () => clearInterval(interval);
+  }, [LeftArray.length])
 
   React.useEffect(() => {
-    let arrayInterval = setInterval(() => {
-      setLeftArrayy(lastArrayCount => {
-        lastArrayCount <= 1 && clearInterval(arrayInterval)
-          return lastArrayCount + 1
-      })
-    }, 1000) //each count lasts for a second
-    //cleanup the interval on complete
-    // console.log(LeftArray);
-    return () => clearInterval(arrayInterval)
-  }, []);
+    let interval;
+    interval = setInterval(() => {
+      setRightArray(oldArr => [...oldArr, "0"]);
+      }, 100);
+    return () => clearInterval(interval);
+  }, [RightArray.length])
 
-  // const noLeftButtonClickedHandler = () => {
-  //   let arrayInterval = setInterval(() => {
-  //     setLeftArrayy(lastArrayCount => {
-  //         lastArrayCount <= 1 && clearInterval(arrayInterval)
-  //         return lastArrayCount + 1
-  //     })
-  //   }, 1000) //Each beat is counted at every milisecond
-  //   //cleanup the interval on complete
-  //   console.log('You have tapped the left button', LeftArray);
-  //   return () => clearInterval(arrayInterval)
-  // }
-
-  // const leftButtonClickedHandler = () => {
-  //   let arrayInterval = setInterval(() => {
-  //     setLeftArrayy(lastArrayCount => {
-  //         lastArrayCount <= 1 && clearInterval(arrayInterval)
-  //         return lastArrayCount + 2
-  //     })
-  //   }, 1000) //Each beat is counted at every milisecond
-  //   //cleanup the interval on complete
-  //   console.log('You have tapped the left button', LeftArray);
-  //   return () => clearInterval(arrayInterval)
-  // }
 
   const leftButtonClickedHandler = () => {
-    LeftArray.push(2);
+    LeftArray.push(1);
     console.log('You have tapped the left button', LeftArray);
     // do something
   };
-
-  // const noLeftButtonClickedHandler = () => {
-  //   LeftArray.push(0);
-  //   console.log('You have tapped the left button', LeftArray);
-  //   // do something
-  // };
 
   const rightButtonClickedHandler = () => {
     RightArray.push(1);
@@ -106,6 +79,8 @@ const PrerecordedImitationPage = ({navigation}) => {
         </View>
 
         <Text style={[styles.timerText]}>Start Tapping In: {counter}</Text>
+        <Text>{LeftArray}</Text>
+        <Text>{RightArray}</Text>
 
         <PopupInstruction/>
 
