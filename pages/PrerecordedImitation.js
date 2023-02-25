@@ -12,11 +12,33 @@ const PrerecordedImitationPage = ({navigation}) => {
   const [LeftArray, setLeftArray] = React.useState([]);
   
   const [RightArray, setRightArray] = React.useState([]);
-    
+
+  function LeftButtonNoClickHandler() {
+    let interval;
+    interval = setInterval(() => {
+      setLeftArray(oldArr => [...oldArr, 0]);
+    }, 100);
+    console.log('Starting addition to left array as timer has reached 0');
+    return () => clearInterval(interval);
+  }
+  
+  function RightButtonNoClickHandler() {
+    let interval;
+    interval = setInterval(() => {
+      setRightArray(oldArr => [...oldArr, 0]);
+    }, 100);
+    console.log('Starting addition to right array as timer has reached 0');
+    return () => clearInterval(interval);
+  }
+  
   const timer = () => {
     let interval = setInterval(() => {
       setCounter(lastTimerCount => {
           lastTimerCount <= 1 && clearInterval(interval)
+          if (lastTimerCount - 1 == 0){
+            LeftButtonNoClickHandler()
+            RightButtonNoClickHandler()
+          }
           return lastTimerCount - 1
       })
     }, 1000) //each count lasts for a second
@@ -24,42 +46,24 @@ const PrerecordedImitationPage = ({navigation}) => {
     console.log("Starting Countdown Now");
     return () => clearInterval(interval)
   }
-  
-  React.useEffect(() => {
-    let interval;
-    interval = setInterval(() => {
-      setLeftArray(oldArr => [...oldArr, "0"]);
-      }, 100);
-    return () => clearInterval(interval);
-  }, [LeftArray.length])
-
-  React.useEffect(() => {
-    let interval;
-    interval = setInterval(() => {
-      setRightArray(oldArr => [...oldArr, "0"]);
-      }, 100);
-    return () => clearInterval(interval);
-  }, [RightArray.length])
-
 
   const leftButtonClickedHandler = () => {
     LeftArray.push(1);
     console.log('You have tapped the left button', LeftArray);
-    // do something
   };
 
   const rightButtonClickedHandler = () => {
     RightArray.push(1);
     console.log('You have tapped the right button', RightArray);
-    // do something
   };
 
   return(
     <View style={styles.container}>
 
+      <Text style={[styles.songTitleText]}> {route.params.SongTitle}</Text>
+
       <View style={[styles.topContainer]}>
-        <Text style={[styles.songTitleText]}> {route.params.SongTitle}</Text>
-  
+        
         <PlayPrerecordedRecording SongToPlay = {route.params.SongTitle}/>
             
         <View style={{flexDirection: 'row'}}> 
@@ -77,7 +81,7 @@ const PrerecordedImitationPage = ({navigation}) => {
             <Text style={[styles.submitText]}>Stop</Text>
           </TouchableOpacity>
         </View>
-
+        
         <Text style={[styles.timerText]}>Start Tapping In: {counter}</Text>
         <Text>{LeftArray}</Text>
         <Text>{RightArray}</Text>
@@ -118,7 +122,12 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'top',
-      paddingTop: 100
+    },
+    secondTopContainer:{
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'top',
+      paddingTop: 10, 
     },
     bottomView: {
       width: '100%',
@@ -145,7 +154,9 @@ const styles = StyleSheet.create({
       color: '#1f3872',
       textAlign: 'center',
       fontWeight: 'bold',
-      fontSize: 20
+      fontSize: 22,
+      marginBottom: 10,
+      paddingTop: 85
     },
     submitText: {
       color: '#1f3872',
@@ -177,8 +188,8 @@ const styles = StyleSheet.create({
     },
     roundButton1: {
       marginBottom: 20,
-      width: 200,
-      height: 200,
+      width: 205,
+      height: 205,
       justifyContent: 'center',
       alignItems: 'center',
       padding: 10,
@@ -188,9 +199,9 @@ const styles = StyleSheet.create({
       borderWidth: 2
     },
     roundButton2: {
-      marginBottom: 80,
-      width: 200,
-      height: 200,
+      marginBottom: 70,
+      width: 205,
+      height: 205,
       justifyContent: 'center',
       alignItems: 'center',
       padding: 10,

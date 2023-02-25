@@ -5,9 +5,12 @@ import PrerecordedRecordings from '../data/PrerecordedRecordings.json';
 const ComparisonAlgorithm = (props) => {
 
     //Get data dynamically
-    const songToPlay = props.songToPlay
+    const SongToPlay = props.SongToPlay
     const StudentLeftArray = []
     const StudentRightArray = []
+    // const StudentLeftArray = props.LeftArray
+    // const StudentRightArray = props.RightArray
+
 
   
     // async function Comparison(){
@@ -19,11 +22,11 @@ const ComparisonAlgorithm = (props) => {
         //From the JSON file
         const name = PrerecordedRecordings[i].SongTitle
 
-        if (name == songToPlay){
+        if (name == SongToPlay){
 
           const PrerecordedLeftArray = PrerecordedRecordings[i].LeftArray
           const PrerecordedRightArray = PrerecordedRecordings[i].RightArray
-          console.log(songToPlay, name, StudentLeftArray, PrerecordedLeftArray, StudentRightArray, PrerecordedRightArray); 
+          console.log(SongToPlay, name, StudentLeftArray, PrerecordedLeftArray, StudentRightArray, PrerecordedRightArray); 
           
           for (let j = 0; j < PrerecordedLeftArray.length; j++){
             for (let k = 0; k < StudentLeftArray.length; k++){
@@ -73,7 +76,6 @@ const ComparisonAlgorithm = (props) => {
 
     return(
         <View style={styles.container}>
-            <Text>{songToPlay}</Text>
             <Text style={[styles.songTitleText]}>{<BeatComparison/>}</Text>
         </View>
     )

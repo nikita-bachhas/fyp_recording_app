@@ -10,7 +10,9 @@ const PrerecordedErrorPage = () => {
         <View style={styles.container}>
             <Text>Your Comparison score for: </Text>
             <Text style={[styles.songTitleText]}> {route.params.SongTitle} </Text>
-            <ComparisonAlgorithm songToPlay = {route.params.SongTitle}/>
+            <Text style={[styles.songTitleText]}> {route.params.LeftArray} </Text>
+            <Text style={[styles.songTitleText]}> {route.params.RightArray} </Text>
+            {/* <ComparisonAlgorithm SongToPlay = {route.params.SongTitle} LeftArray = {route.params.LeftArray} RightArray = {route.params.RightArray}/> */}
             <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
             <Text>Developed By: Bachhas Nikita</Text>
