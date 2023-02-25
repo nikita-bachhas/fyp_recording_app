@@ -76,7 +76,7 @@ const PrerecordedImitationPage = ({navigation}) => {
 
           <TouchableOpacity
             style={styles.submit}
-            onPress={() => navigation.push('PrerecordedErrorPage', {SongTitle: route.params.SongTitle}, {LeftArray: LeftArray}, {RightArray: RightArray})}
+            onPress={() => navigation.push('PrerecordedErrorPage', {SongTitle: route.params.SongTitle, StudentLeftArray: LeftArray, StudentRightArray: RightArray})}
             underlayColor='#fff'>
             <Text style={[styles.submitText]}>Stop</Text>
           </TouchableOpacity>
