@@ -49,16 +49,16 @@ const PrerecordedPage = ({navigation}) => {
           <View style={{flexDirection: 'row'}}> 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Madagascar 3 Afro Circus"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Fleetwood Mac Tusk"})}
               underlayColor='#fff'>
-              <Text style={[styles.submitText]}>Madagascar 3: Afro Circus</Text>
+              <Text style={[styles.submitText]}>Fleetwood Mac: Tusk</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Fleetwood Mac Tusk"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Michael Jackson Billy Jean"})}
               underlayColor='#fff'>
-              <Text style={[styles.submitText]}>Fleetwood Mac: Tusk</Text>
+              <Text style={[styles.submitText]}>Michael Jackson: Billy Jean</Text>
             </TouchableHighlight>
           </View>
 

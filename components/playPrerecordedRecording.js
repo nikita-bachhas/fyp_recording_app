@@ -8,7 +8,31 @@ export default function PlayPrerecordedRecording(props) {
   const SongToPlay = props.SongToPlay
 
   async function playSound() {
-    if (SongToPlay ==  "Bread & Butter"){
+    if (SongToPlay ==  "Fleetwood Mac Tusk"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/Tusk_2018_Remaster_Percussion_Beat.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Michael Jackson Billy Jean"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/Michael_Jackson_Billie_Jean_Percussion_Beat.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Phil Collins You Can't Hurry Love"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/you_cant_hurry_love_by_phil_collins.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
+    else if (SongToPlay ==  "Bread & Butter"){
       console.log('Loading Sound');
       const { sound } = await Audio.Sound.createAsync( require('../assets/BreadNButter92bpm.mp3')
       );

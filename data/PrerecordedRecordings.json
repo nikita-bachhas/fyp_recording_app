@@ -1,21 +1,21 @@
 [
     {
-        "SongTitle": "Madagascar 3 Afro Circus",
-        "PathAddress": "../assets/Madagascar3AfroCircus.mp3",
-        "Duration":"0:08",
-        "LeftArray":[0,0,0,0,0],
-        "RightArray": [0,0,0,0,0]
-    },
-    {
         "SongTitle": "Fleetwood Mac Tusk",
-        "PathAddress": "../assets/FleetwoodMacTusk.mp3",
+        "PathAddress": "../assets/Tusk_2018_Remaster_Percussion_Beat.mp3",
         "Duration": "",
         "LeftArray":[],
         "RightArray": []
     },
     {
+        "SongTitle": "Michael Jackson Billy Jean",
+        "PathAddress": "../assets/Michael_Jackson_Billie_Jean_Percussion_Beat.mp3",
+        "Duration":"0:08",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
         "SongTitle": "Phil Collins You Can't Hurry Love",
-        "PathAddress": "../assets/PhilCollinsYouCan'tHurryLove.mp3",
+        "PathAddress": "../assets/you_cant_hurry_love_by_phil_collins.mp3",
         "Duration": "",
         "LeftArray":[],
         "RightArray": []

@@ -83,8 +83,8 @@ const PrerecordedImitationPage = ({navigation}) => {
         </View>
         
         <Text style={[styles.timerText]}>Start Tapping In: {counter}</Text>
-        <Text>{LeftArray}</Text>
-        <Text>{RightArray}</Text>
+        {/* <Text>{LeftArray}</Text>
+        <Text>{RightArray}</Text> */}
 
         <PopupInstruction/>
 

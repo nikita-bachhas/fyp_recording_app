@@ -1,18 +1,17 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
 import PrerecordedRecordings from '../data/PrerecordedRecordings.json';
+import CircularProgress from 'react-native-circular-progress-indicator';
 
 const ComparisonAlgorithm = (props) => {
 
     //Get data dynamically
     const SongToPlay = props.SongToPlay
-    const StudentLeftArray = []
-    const StudentRightArray = []
-    // const StudentLeftArray = props.LeftArray
-    // const StudentRightArray = props.RightArray
+    const StudentLeftArray = props.StudentLeftArray
+    const StudentRightArray = props.StudentRightArray
+    // const StudentLeftArray = []
+    // const StudentRightArray = []
 
-
-  
     // async function Comparison(){
     const BeatComparison = () => {
       const beatMatchLeftCount = 0
@@ -76,7 +75,22 @@ const ComparisonAlgorithm = (props) => {
 
     return(
         <View style={styles.container}>
-            <Text style={[styles.songTitleText]}>{<BeatComparison/>}</Text>
+            {/* <Text style={[styles.songTitleText]}>{<BeatComparison/>}</Text> */}
+            <CircularProgress
+              value={50}
+              radius={120}
+              inActiveStrokeOpacity={0.5}
+              activeStrokeWidth={15}
+              inActiveStrokeWidth={20}
+              progressValueStyle={{ fontWeight: '100', color: '#1f3872' }}
+              activeStrokeSecondaryColor="yellow"
+              inActiveStrokeColor="black"
+              duration={3000}
+              dashedStrokeConfig={{
+                count: 50,
+                width: 4,
+              }}
+            />
         </View>
     )
 }
@@ -94,7 +108,7 @@ const styles = StyleSheet.create({
     color: '#1f3872',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 20,  
   },
 });
 

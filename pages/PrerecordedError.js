@@ -1,18 +1,28 @@
 import React from "react";
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRoute } from "@react-navigation/native";
 import ComparisonAlgorithm from "../components/ComparisonAlgorithm";
+import DisplayRecordings from "../components/DisplayRecordings";
 
-const PrerecordedErrorPage = () => {
+const PrerecordedErrorPage = ({navigation}) => {
   const route = useRoute()
 
     return(
         <View style={styles.container}>
             <Text>Your Comparison score for: </Text>
             <Text style={[styles.songTitleText]}> {route.params.SongTitle} </Text>
-            <Text> {route.params.StudentLeftArray} </Text>
-            <Text> {route.params.StudentRightArray} </Text>
-            {/* <ComparisonAlgorithm SongToPlay = {route.params.SongTitle} LeftArray = {route.params.LeftArray} RightArray = {route.params.RightArray}/> */}
+
+            <ComparisonAlgorithm SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
+            
+            {/* <DisplayRecordings/>  */}
+
+            <TouchableOpacity
+              style={styles.submit}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: route.params.SongTitle})}
+              underlayColor='#fff'>
+              <Text style={[styles.submitText]}>Retry</Text>
+            </TouchableOpacity>
+
             <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
             <Text>Developed By: Bachhas Nikita</Text>
@@ -53,7 +63,29 @@ const styles = StyleSheet.create({
       color: '#1f3872',
       textAlign: 'center',
       fontWeight: 'bold',
-      fontSize: 20
+      fontSize: 20,
+      paddingBottom:120
+    },
+    submitText: {
+      color: '#1f3872',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 18
+    }, 
+    submit: {
+      marginRight: 15,
+      marginLeft: 15,
+      marginTop: 130,
+      paddingTop: 20,
+      paddingBottom: 20,
+      backgroundColor: '#fff',
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: '#fff',
+      height: 70, 
+      width: 150,
+      justifyContent: 'center',
+      alignItems: 'center'
     },
   });
 
