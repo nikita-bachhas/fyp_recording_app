@@ -1,11 +1,29 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
+import PrerecordedRecordings from '../data/PrerecordedRecordings.json';
 import { Audio } from 'expo-av';
 
 export default function PlayPrerecordedRecording(props) {
   const [sound, setSound] = React.useState();
 
   const SongToPlay = props.SongToPlay
+
+  // function getRecordingDuration() {
+  const getRecordingDuration = () => {
+    for (let i = 0; i < PrerecordedRecordings.length; i++) {
+      const name = PrerecordedRecordings[i].SongTitle
+
+      if (name == SongToPlay){
+        const duration = PrerecordedRecordings[i].Duration
+        return(duration)
+      }
+      else {
+        console.log("Unable to Find Recording Duration")
+      }
+    }
+  }
+
+  const duration = getRecordingDuration()
 
   async function playSound() {
     if (SongToPlay ==  "Fleetwood Mac Tusk"){
@@ -158,6 +176,10 @@ export default function PlayPrerecordedRecording(props) {
   return (
     <View style={styles.container}>
       <Button title="Play Sound" onPress={playSound} />
+      <Text style={{
+        fontSize: 17, 
+        paddingLeft: 30
+        }}> Duration: {duration}</Text>
     </View>
   );
 }
@@ -165,10 +187,12 @@ export default function PlayPrerecordedRecording(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     width: 200,
     maxHeight: 40,
-    marginTop: 10
+    marginTop: 10,
+    paddingBottom: 2
   },
 });

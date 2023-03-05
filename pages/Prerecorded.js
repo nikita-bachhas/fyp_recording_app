@@ -85,7 +85,10 @@ const PrerecordedPage = ({navigation}) => {
               style={styles.submit}
               onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Queen Another One Bites the Dust"})}
               underlayColor='#fff'>
-              <Text style={[styles.submitText]}>Queen: Another One Bites the Dust</Text>
+              <View>
+                <Text style={[styles.submitText]}>Queen: Another One Bites the</Text>
+                <Text style={[styles.submitText]}> Dust</Text>
+              </View>
             </TouchableHighlight>
 
             <TouchableHighlight
@@ -272,7 +275,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: 'bold',
       fontSize: 17
-    }, 
+    },
     contentContainer: {
       paddingVertical: 5,
       paddingBottom: 75
