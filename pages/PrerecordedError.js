@@ -18,12 +18,21 @@ const PrerecordedErrorPage = ({navigation}) => {
             
             {/* <DisplayRecordings/>  */}
 
-            <TouchableOpacity
-              style={styles.submit}
-              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: route.params.SongTitle})}
-              underlayColor='#fff'>
-              <Text style={[styles.submitText]}>Retry</Text>
-            </TouchableOpacity>
+            <View style={{flexDirection: 'row'}}>
+              <TouchableOpacity
+                style={styles.submit}
+                onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: route.params.SongTitle})}
+                underlayColor='#fff'>
+                <Text style={[styles.submitText]}>Retry</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.submit}
+                onPress={() => navigation.push('PrerecordedPage')}
+                underlayColor='#fff'>
+                <Text style={[styles.submitText]}>Return to Recordings</Text>
+              </TouchableOpacity>
+            </View>
 
             <View style={styles.bottomView}>
             <Text>NTU Final Year Project 2022-2023</Text>
@@ -74,17 +83,32 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 18
     }, 
+    // submit: {
+    //   marginRight: 15,
+    //   marginLeft: 15,
+    //   marginTop: 130,
+    //   paddingTop: 20,
+    //   paddingBottom: 20,
+    //   backgroundColor: '#fff',
+    //   borderRadius: 10,
+    //   borderWidth: 1,
+    //   borderColor: '#fff',
+    //   height: 70, 
+    //   width: 150,
+    //   justifyContent: 'center',
+    //   alignItems: 'center'
+    // },
     submit: {
-      marginRight: 15,
-      marginLeft: 15,
-      marginTop: 130,
+      marginRight: 20,
+      marginLeft: 10,
+      marginTop: 20,
       paddingTop: 20,
       paddingBottom: 20,
       backgroundColor: '#fff',
       borderRadius: 10,
       borderWidth: 1,
       borderColor: '#fff',
-      height: 70, 
+      height: 100, 
       width: 150,
       justifyContent: 'center',
       alignItems: 'center'

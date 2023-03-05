@@ -43,7 +43,7 @@ export default function Home({navigation}){
             fontWeight: 'bold',
             color: '#1f3872',
             marginTop: 20
-          }}> Username </Text>
+          }}> Full Name </Text>
 
           <Text style={{
             marginTop: 6,
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
     color: '#1f3872',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 17
+    fontSize: 17, 
   }, 
   scoreTable: {
     marginRight: 20,

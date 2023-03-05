@@ -14,6 +14,13 @@
         "RightArray": []
     },
     {
+        "SongTitle": "Queen Another One Bites the Dust",
+        "PathAddress": "../assets/Queen_Another_One_Bites_The_Dust_Percussion_Beat.mp3",
+        "Duration":"0:17",
+        "LeftArray":[],
+        "RightArray": []
+    },
+    {
         "SongTitle": "Phil Collins You Can't Hurry Love",
         "PathAddress": "../assets/you_cant_hurry_love_by_phil_collins.mp3",
         "Duration": "0.18",
