@@ -47,6 +47,7 @@ const PrerecordedErrorPage = ({navigation}) => {
             <Text style={[styles.songTitleText]}> {route.params.SongTitle} </Text>
             <Text> {route.params.StudentLeftArray} </Text>
             <Text> {route.params.StudentRightArray}</Text>
+            <Text> {route.params.Duration}</Text>
 
             {/* <ComparisonAlgorithm SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/> */}
             

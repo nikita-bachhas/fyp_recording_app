@@ -11,6 +11,8 @@ const PrerecordedImitationPage = ({navigation}) => {
 
   const [counter, setCounter] = React.useState(3);
 
+  const [stopwatch, setStopwatch] = React.useState(0);
+
   const [LeftArray, setLeftArray] = React.useState([]);
   
   const [RightArray, setRightArray] = React.useState([]);
@@ -40,12 +42,19 @@ const PrerecordedImitationPage = ({navigation}) => {
           if (lastTimerCount - 1 == 0){
             LeftButtonNoClickHandler()
             RightButtonNoClickHandler()
+            startStopwatch()
           }
           return lastTimerCount - 1
       })
     }, 1000) //each count lasts for a second
     //cleanup the interval on complete
     console.log("Starting Countdown Now");
+    return () => clearInterval(interval)
+  }
+
+  const startStopwatch = () => {
+    console.log("Stopwatch started.")
+    let interval = setInterval(() => setStopwatch(lastStopwatchCount => lastStopwatchCount + 1), 1000);
     return () => clearInterval(interval)
   }
 
@@ -110,13 +119,17 @@ const PrerecordedImitationPage = ({navigation}) => {
 
           <TouchableOpacity
             style={styles.submit}
-            onPress={() => navigation.push('PrerecordedErrorPage', {SongTitle: route.params.SongTitle, StudentLeftArray: LeftArray, StudentRightArray: RightArray})}
+            onPress={() => navigation.push('PrerecordedErrorPage', {SongTitle: route.params.SongTitle, StudentLeftArray: LeftArray, StudentRightArray: RightArray, Duration: stopwatch})}
             underlayColor='#fff'>
             <Text style={[styles.submitText]}>Stop</Text>
           </TouchableOpacity>
         </View>
-        
-        <Text style={[styles.timerText]}>Start Tapping In: {counter}</Text>
+
+        <View style={{flexDirection: 'row'}}> 
+          <Text style={[styles.timerText]}>Start Tapping In: {counter}</Text>
+          <Text style={[styles.durationText]}>0:0{stopwatch}</Text>
+        </View>
+
         {/* <Text>{LeftArray}</Text>
         <Text>{RightArray}</Text> */}
 
@@ -204,6 +217,14 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 25,
       paddingTop: 20,
+    }, 
+    durationText: {
+      color: '#000000',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 25,
+      paddingTop: 20,
+      paddingLeft: 55
     }, 
     submit: {
       marginRight: 15,
