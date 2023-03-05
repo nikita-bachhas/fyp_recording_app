@@ -1,15 +1,33 @@
 import React from "react";
-import { Text, View, StyleSheet, ImageBackground, Animated, TouchableHighlight, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, Animated, TouchableOpacity, TouchableHighlight, ScrollView } from 'react-native';
 // import PreviousRecordingTable from "../components/PreviousRecordingsTable";
 import SearchBarComponent from "../components/SearchBar";
 
 //Menu and Logo Icons
 import menu from '../assets/menu.png'
+import back from '../assets/back.png'
 
 const PrerecordedPage = ({navigation}) => {
     return(
         <View style={styles.container}>
-            {/* <PreviousRecordingTable/> */}
+        
+          <View style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            paddingHorizontal: 20,
+            paddingVertical: 20,
+            }}>
+            <TouchableOpacity>
+              <ImageBackground 
+                source={back} 
+                style={styles.backContentContainer}
+                onPress={() => navigation.push('Home')}
+              />
+            </TouchableOpacity>
+          </View>
 
           <Animated.View style={{
             position: 'absolute',
@@ -225,6 +243,14 @@ const styles = StyleSheet.create({
       height: 20,
       tintColor: 'black',
       marginTop: 40,
+    },
+    backContentContainer:{
+      width: 26, 
+      height: 26,
+      tintColor: 'black',
+      marginTop: 37,
+      marginLeft: 320
+
     },
     submit: {
       marginRight: 15,

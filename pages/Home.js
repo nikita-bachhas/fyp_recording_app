@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Button, StyleSheet, Text, View, SafeAreaView, TouchableHighlight, ImageBackground, TouchableOpacity, Animated} from 'react-native';
-import { Card } from '@rneui/themed';
+import { StyleSheet, Text, View, SafeAreaView, TouchableHighlight, ImageBackground, TouchableOpacity, Animated} from 'react-native';
 import Emoji from 'react-native-emoji';
 import { useNavigation } from '@react-navigation/native';
 

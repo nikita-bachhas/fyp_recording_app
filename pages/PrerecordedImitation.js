@@ -1,8 +1,10 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, Animated} from 'react-native';
 import { useRoute } from "@react-navigation/native";
 import PlayPrerecordedRecording from "../components/PlayPrerecordedRecording";
 import PopupInstruction from "../components/PopupInstruction";
+import menu from '../assets/menu.png'
+import back from '../assets/back.png'
 
 const PrerecordedImitationPage = ({navigation}) => {
   const route = useRoute();
@@ -59,6 +61,38 @@ const PrerecordedImitationPage = ({navigation}) => {
 
   return(
     <View style={styles.container}>
+    
+      <View style={{
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        }}>
+        <TouchableOpacity>
+          <ImageBackground 
+            source={back} 
+            style={styles.backContentContainer}
+            onPress={() => navigation.push('Home')}
+            />
+        </TouchableOpacity>
+      </View>
+
+      <Animated.View style={{
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        }}>
+        <ImageBackground 
+          source={menu} 
+          style={styles.menuContentContainer}/>
+      </Animated.View>
 
       <Text style={[styles.songTitleText]}> {route.params.SongTitle}</Text>
 
@@ -209,6 +243,19 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       borderColor: "#ccc",
       borderWidth: 2
+    },
+    backContentContainer:{
+      width: 26, 
+      height: 26,
+      tintColor: 'black',
+      marginTop: 37,
+      marginLeft: 320
+    },
+    menuContentContainer:{
+      width: 20, 
+      height: 20,
+      tintColor: 'black',
+      marginTop: 40,
     },
   });
 
