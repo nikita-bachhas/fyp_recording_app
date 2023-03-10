@@ -47,19 +47,21 @@ const PrerecordedErrorPage = ({navigation}) => {
 
             <Text>Your Comparison score for: </Text>
             <Text style={[styles.songTitleText]}> {route.params.SongTitle} </Text>
-            
+
             {/* <Text> {route.params.StudentLeftArray} </Text>
             <Text> {route.params.StudentRightArray}</Text>
             <Text> {route.params.Duration}</Text> */}
 
-            <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
-            
+            <View style={styles.ComparisonContainer}>
+              <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
+            </View>
+
             {/* <BeatComparison SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
             <TempoComparison SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray} Duration = {route.params.Duration}/> */}
             
-            {/* <ScrollView contentContainerStyle={styles.contentContainer}>
+            <ScrollView contentContainerStyle={styles.contentContainer}>
               <DisplayRecordingsOne/> 
-            </ScrollView> */}
+            </ScrollView>
 
             <View style={{flexDirection: 'row'}}>
               <TouchableOpacity
@@ -91,6 +93,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#f1f7ff',
       alignItems: 'center',
       justifyContent: 'center',
+      paddingTop: 80
     },
     bottomView: {
       width: '100%',
@@ -129,7 +132,8 @@ const styles = StyleSheet.create({
     submitRetry: {
       marginRight: 20,
       marginLeft: 30,
-      marginTop: 440,
+      marginTop: 10,
+      marginBottom: 75,
       paddingTop: 20,
       paddingBottom: 20,
       backgroundColor: '#fff',
@@ -144,7 +148,8 @@ const styles = StyleSheet.create({
     submitReturn: {
       marginRight: 20,
       marginLeft: 10,
-      marginTop: 440,
+      marginTop: 10,
+      marginBottom: 75,
       paddingTop: 20,
       paddingBottom: 20,
       backgroundColor: '#fff',
@@ -168,6 +173,20 @@ const styles = StyleSheet.create({
       height: 20,
       tintColor: 'black',
       marginTop: 40,
+    },
+    ContentContainer:{
+      width: 20, 
+      height: 20,
+      tintColor: 'black',
+      marginTop: 40,
+    }, 
+    ComparisonContainer: {
+      paddingBottom: 70
+    },
+    contentContainer: {
+      width: 380,
+      height: 500,
+      alignItems: 'center'
     },
   });
 
