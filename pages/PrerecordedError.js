@@ -1,8 +1,10 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, Animated} from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, Animated, ScrollView} from 'react-native';
 import { useRoute } from "@react-navigation/native";
-import ComparisonAlgorithm from "../components/ComparisonAlgorithmOne";
-import DisplayRecordings from "../components/DisplayRecordingsOne";
+import ComparisonAlgorithmOne from "../components/ComparisonAlgorithmOne";
+import BeatComparison from "../components/BeatComparison";
+import TempoComparison from "../components/TempoComparison";
+import DisplayRecordingsOne from "../components/DisplayRecordingsOne";
 import menu from '../assets/menu.png'
 import back from '../assets/back.png'
 
@@ -45,24 +47,30 @@ const PrerecordedErrorPage = ({navigation}) => {
 
             <Text>Your Comparison score for: </Text>
             <Text style={[styles.songTitleText]}> {route.params.SongTitle} </Text>
-            <Text> {route.params.StudentLeftArray} </Text>
-            <Text> {route.params.StudentRightArray}</Text>
-            <Text> {route.params.Duration}</Text>
-
-            <ComparisonAlgorithm SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
             
-            {/* <DisplayRecordings/>  */}
+            {/* <Text> {route.params.StudentLeftArray} </Text>
+            <Text> {route.params.StudentRightArray}</Text>
+            <Text> {route.params.Duration}</Text> */}
+
+            <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
+            
+            {/* <BeatComparison SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
+            <TempoComparison SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray} Duration = {route.params.Duration}/> */}
+            
+            {/* <ScrollView contentContainerStyle={styles.contentContainer}>
+              <DisplayRecordingsOne/> 
+            </ScrollView> */}
 
             <View style={{flexDirection: 'row'}}>
               <TouchableOpacity
-                style={styles.submit}
+                style={styles.submitRetry}
                 onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: route.params.SongTitle})}
                 underlayColor='#fff'>
                 <Text style={[styles.submitText]}>Retry</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={styles.submit}
+                style={styles.submitReturn}
                 onPress={() => navigation.push('PrerecordedPage')}
                 underlayColor='#fff'>
                 <Text style={[styles.submitText]}>Return to Recordings</Text>
@@ -110,41 +118,41 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: 'bold',
       fontSize: 20,
-      paddingBottom:120
+      paddingBottom:70
     },
     submitText: {
       color: '#1f3872',
       textAlign: 'center',
       fontWeight: 'bold',
       fontSize: 18
-    }, 
-    // submit: {
-    //   marginRight: 15,
-    //   marginLeft: 15,
-    //   marginTop: 130,
-    //   paddingTop: 20,
-    //   paddingBottom: 20,
-    //   backgroundColor: '#fff',
-    //   borderRadius: 10,
-    //   borderWidth: 1,
-    //   borderColor: '#fff',
-    //   height: 70, 
-    //   width: 150,
-    //   justifyContent: 'center',
-    //   alignItems: 'center'
-    // },
-    submit: {
+    },
+    submitRetry: {
       marginRight: 20,
-      marginLeft: 10,
-      marginTop: 20,
+      marginLeft: 30,
+      marginTop: 440,
       paddingTop: 20,
       paddingBottom: 20,
       backgroundColor: '#fff',
       borderRadius: 10,
       borderWidth: 1,
       borderColor: '#fff',
-      height: 100, 
-      width: 150,
+      height: 80, 
+      width: 100,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    submitReturn: {
+      marginRight: 20,
+      marginLeft: 10,
+      marginTop: 440,
+      paddingTop: 20,
+      paddingBottom: 20,
+      backgroundColor: '#fff',
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: '#fff',
+      height: 80, 
+      width: 210,
       justifyContent: 'center',
       alignItems: 'center'
     },

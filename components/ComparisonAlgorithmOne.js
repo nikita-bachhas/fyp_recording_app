@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import PrerecordedRecordings from '../data/PrerecordedRecordings.json';
 import CircularProgress from 'react-native-circular-progress-indicator';
 
@@ -9,24 +9,23 @@ const ComparisonAlgorithmOne = (props) => {
     const SongToPlay = props.SongToPlay
     // const StudentLeftArray = props.StudentLeftArray
     // const StudentRightArray = props.StudentRightArray
+    // const Duration = props.Duration
     const StudentLeftArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
     const StudentRightArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    const Duration = 14
 
     const BeatComparison = () => {
-      const beatMatchLeftCount = 0
-      const beatMatchRightCount = 0
-
+      var beatMatchLeftCount = 0
+      var beatMatchRightCount = 0
+  
       for (let i = 0; i < PrerecordedRecordings.length; i++) {
-        //From the JSON file
         const name = PrerecordedRecordings[i].SongTitle
-
+        
         if (name == SongToPlay){
-
+  
           const PrerecordedLeftArray = PrerecordedRecordings[i].LeftArray
           const PrerecordedRightArray = PrerecordedRecordings[i].RightArray
-
-          console.log(SongToPlay, name, StudentLeftArray, PrerecordedLeftArray, StudentRightArray, PrerecordedRightArray); 
-          
+  
           for (let j = 0; j < PrerecordedLeftArray.length; j++){
             for (let k = 0; k < StudentLeftArray.length; k++){
               if (j == k){
@@ -59,7 +58,7 @@ const ComparisonAlgorithmOne = (props) => {
               }
             }
           }
-
+  
           for (let m = 0; m < PrerecordedRightArray.length; m++){
             for (let n = 0; n < StudentRightArray.length; n++){
               if (m == n){
@@ -92,110 +91,66 @@ const ComparisonAlgorithmOne = (props) => {
               }
             }
           }
-
-          console.log("The Total Number of Matching Beats for the Left Hand Side is:", beatMatchLeftCount, PrerecordedLeftArray.length, StudentLeftArray.length); 
-          console.log("The Total Number of Matching Beats for the Right Hand Side is:", beatMatchRightCount, PrerecordedRightArray.length, StudentRightArray.length); 
-          
-          const finalBeatMatchCount = (beatMatchLeftCount + beatMatchRightCount)/2
-
-          console.log("Beat Comparison: ", finalBeatMatchCount)
-
-          return(finalBeatMatchCount)
-        }
-        else{
-          console.log("Not current Track; proceed to next track"); 
+  
+          var averageTotalBeatLeftCount = (PrerecordedLeftArray.length + StudentLeftArray.length)/2
+          var averageTotalBeatRightCount = (PrerecordedRightArray.length + StudentRightArray.length)/2
+  
+          var beatMatchLeftPercent = beatMatchLeftCount/averageTotalBeatLeftCount
+          var beatMatchRightPercent = beatMatchRightCount/averageTotalBeatRightCount
+  
+          var BeatSimilarity = Math.round((50 * beatMatchLeftPercent) + (50 * beatMatchRightPercent))
+  
+          console.log("Variables:", name, BeatSimilarity, beatMatchLeftPercent, beatMatchLeftCount, beatMatchRightPercent, beatMatchRightCount)
         }
       }
+      return(BeatSimilarity)
     }
 
-    // async function tempoComparison(){
-    //   for (let i = 0; i < PrerecordedRecordings.length; i++) {
+    const TempoComparison = () => {
+      var averageTotalBeatCount = (StudentLeftArray.length + StudentRightArray.length)/2
+  
+      var averageTotalBeatCountPerSecond = (averageTotalBeatCount * 100)/1000
+  
+      var weightage = 60/Duration
+  
+      var StudentTempo = averageTotalBeatCountPerSecond * weightage
+  
+      console.log("Variables:", averageTotalBeatCount, Duration, StudentTempo)
+  
+      for (let i = 0; i < PrerecordedRecordings.length; i++) {
+        const name = PrerecordedRecordings[i].SongTitle
+  
+        if (name == SongToPlay){
+          const PrerecordedTempo = PrerecordedRecordings[i].Tempo
+  
+          var BeatSimilarityPercent = Math.round((StudentTempo/PrerecordedTempo) * 100)
+  
+          console.log("Tempo Variables:", name, PrerecordedTempo, BeatSimilarityPercent)
+        }
+      }
+      return(BeatSimilarityPercent)
+    }
 
-    //     const name = PrerecordedRecordings[i].SongTitle
+    const finalPercentageCalculation = () => {
 
-    //     if (name == SongToPlay){
-    //       //Counting Temp
-    //       const PrerecordedTotalLeftCount = 0
-    //       const PrerecordedTappedLeftCount = 0
-          
-    //       const PrerecordedLeftArray = PrerecordedRecordings[i].LeftArray
-    //       const PrerecordedRightArray = PrerecordedRecordings[i].RightArray
+      const finalBeatMatchCount = BeatComparison();
+      const finalTempo =  TempoComparison();
 
-    //       for (let a = 0; a < PrerecordedLeftArray.length; a++){
-    //         PrerecordedTotalLeftCount += 1
-    //         if (a == 1){
-    //           PrerecordedTappedLeftCount += 1
-    //         }
-    //       }
-    //       const tempoPrerecordedLeft = PrerecordedTappedLeftCount/PrerecordedTotalLeftCount * 100
+      const finalPercentage = Math.round((finalTempo * 0.20) +  (finalBeatMatchCount * 0.80))
 
-    //       const PrerecordedTotalRightCount = 0
-    //       const PrerecordedTappedRightCount = 0
-    //       for (let b = 0; b < PrerecordedRightArray.length; b++){
-    //         PrerecordedTotalRightCount += 1
-    //         if (b == 1){
-    //           PrerecordedTappedRightCount += 1
-    //         }
-    //       }
-    //       const tempoPrerecordedRight = PrerecordedTappedRightCount/PrerecordedTotalRightCount * 100
+      console.log("Final Calculation: ", finalBeatMatchCount, finalTempo, finalPercentage)
 
-    //       const StudentTotalLeftCount = 0
-    //       const StudentTappedLeftCount = 0
-    //       for (let c = 0; c < StudentLeftArray.length; c++){
-    //         StudentTotalLeftCount += 1
-    //         if (c == 1){
-    //           StudentTappedLeftCount += 1
-    //         }
-    //       }
-    //       const tempoStudentLeft = StudentTappedLeftCount/StudentTotalLeftCount * 100
+      return(finalPercentage)
+    }
 
-    //       const StudentTotalRightCount = 0
-    //       const StudentTappedRightCount = 0
-    //       for (let d = 0; d < StudentRightArray.length; d++){
-    //         StudentTotalRightCount += 1
-    //         if (d == 1){
-    //           StudentTappedRightCount += 1
-    //         }
-    //       }
-    //       const tempoStudentRight = StudentTappedRightCount/StudentTotalRightCount * 100
-
-    //       const finalTempo = (tempoPrerecordedLeft + tempoPrerecordedRight + tempoStudentLeft + tempoStudentRight)/4
-
-    //       console.log("Calculating tempo: ", tempoPrerecordedLeft, tempoPrerecordedRight, tempoStudentLeft, tempoStudentRight, finalTempo)
-
-    //       return(finalTempo)
-    //     }
-    //     else{
-    //       console.log("Not current Track; proceed to next track"); 
-    //     }
-    //   }
-    // }
-
-    // async function finalPercentageCalculation(){
-
-    //   const finalBeatMatchCount = BeatComparison();
-    //   const finalTempo = tempoComparison();
-
-    //   const finalPercentage = (finalTempo * 0.20) +  (finalBeatMatchCount * 0.80)
-
-    //   console.log("Final Calculation: ", finalBeatMatchCount, finalTempo, finalPercentage)
-
-    //   return(finalPercentage)
-    // }
-
-    // const value = finalPercentageCalculation();
-    const value = BeatComparison();
+    const value = finalPercentageCalculation();
 
     return(
         <View style={styles.container}>
 
-            <Text style={[styles.songTitleText]}>{value}</Text>
-            {/* <Text style={[styles.songTitleText]}>{tempoComparison}</Text>
-            <Text style={[styles.songTitleText]}>{finalPercentageCalculation}</Text> */}
-
-            {/* <CircularProgress
+            <CircularProgress
               value={value}
-              radius={120}
+              radius={80}
               inActiveStrokeOpacity={0.5}
               activeStrokeWidth={15}
               inActiveStrokeWidth={20}
@@ -207,7 +162,8 @@ const ComparisonAlgorithmOne = (props) => {
                 count: 50,
                 width: 4,
               }}
-            /> */}
+            />
+            
         </View>
     )
 }

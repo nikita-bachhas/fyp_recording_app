@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-native';
 
-const DisplayRecordings = () => {
+const DisplayRecordingsOne = () => {
 
     return(
         <View style={styles.container}>
@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DisplayRecordings
+export default DisplayRecordingsOne

@@ -1,6 +1,5 @@
 import React from "react";
 import { Text, View, StyleSheet, ImageBackground, Animated, TouchableOpacity, TouchableHighlight, ScrollView } from 'react-native';
-// import PreviousRecordingTable from "../components/PreviousRecordingsTable";
 import SearchBarComponent from "../components/SearchBar";
 
 //Menu and Logo Icons
