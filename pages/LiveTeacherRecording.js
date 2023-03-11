@@ -3,6 +3,7 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { Audio } from 'expo-av';
 import * as Sharing from 'expo-sharing';
+import PopupInstructionLive from "../components/PopupInstructionLive";
 
 export default function LiveTeacherRecording({ navigation, route }) {
   const [recording, setRecording] = React.useState();
@@ -71,16 +72,19 @@ export default function LiveTeacherRecording({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      <Text>{message}</Text>
-      <Button
-        title={recording ? 'Stop Recording' : 'Start Recording'}
-        onPress={recording ? stopRecording : startRecording} />
-      {getRecordingLines()}
-      <View style={styles.bottomView}>
-      <Text>NTU Final Year Project 2022-2023</Text>
-      <Text>Developed By: Bachhas Nikita</Text>
+      <PopupInstructionLive/>
+      <View style={styles.contentContainer}>
+        <Text>{message}</Text>
+        <Button
+          title={recording ? 'Stop Recording' : 'Start Recording'}
+          onPress={recording ? stopRecording : startRecording} />
+        {getRecordingLines()}
+        <StatusBar style="auto" />
       </View>
-      <StatusBar style="auto" />
+      <View style={styles.bottomView}>
+        <Text>NTU Final Year Project 2022-2023</Text>
+        <Text>Developed By: Bachhas Nikita</Text>
+      </View>
     </View>
   );
 }
@@ -91,6 +95,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f7ff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  contentContainer: {
+    flex: 1,
+    backgroundColor: '#f1f7ff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 300
   },
   bottomView: {
     width: '100%',
