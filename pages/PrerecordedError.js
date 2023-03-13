@@ -4,7 +4,7 @@ import { useRoute } from "@react-navigation/native";
 import ComparisonAlgorithmOne from "../components/ComparisonAlgorithmOne";
 import BeatComparison from "../components/BeatComparison";
 import TempoComparison from "../components/TempoComparison";
-import DisplayRecordingsOne from "../components/DisplayRecordingsOne";
+// import DisplayRecordingsOne from "../components/DisplayRecordingsOne";
 import menu from '../assets/menu.png'
 import back from '../assets/back.png'
 
@@ -59,9 +59,9 @@ const PrerecordedErrorPage = ({navigation}) => {
             {/* <BeatComparison SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
             <TempoComparison SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray} Duration = {route.params.Duration}/> */}
             
-            <ScrollView contentContainerStyle={styles.contentContainer}>
+            {/* <ScrollView contentContainerStyle={styles.contentContainer}>
               <DisplayRecordingsOne/> 
-            </ScrollView>
+            </ScrollView> */}
 
             <View style={{flexDirection: 'row'}}>
               <TouchableOpacity
