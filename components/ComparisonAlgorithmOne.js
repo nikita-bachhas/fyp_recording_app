@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     color: '#1f3872',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 20, 
+    fontSize: 18, 
     paddingBottom: 7 
   },
 });

@@ -3,8 +3,6 @@ import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, Animated, Sc
 import { useRoute } from "@react-navigation/native";
 import ComparisonAlgorithmOne from "../components/ComparisonAlgorithmOne";
 import ComparisonAlgorithmTwo from "../components/ComparisonAlgorithmTwo";
-import BeatComparison from "../components/BeatComparison";
-import TempoComparison from "../components/TempoComparison";
 // import DisplayRecordingsOne from "../components/DisplayRecordingsOne";
 import menu from '../assets/menu.png'
 import back from '../assets/back.png'
@@ -54,12 +52,9 @@ const PrerecordedErrorPage = ({navigation}) => {
             <Text> {route.params.Duration}</Text> */}
 
             <View style={styles.ComparisonContainer}>
-              {/* <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/> */}
-              <ComparisonAlgorithmTwo/>
+              {/* <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray} Duration = {route.params.Duration}/>*/}
+              <ComparisonAlgorithmTwo SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
             </View>
-
-            {/* <BeatComparison SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
-            <TempoComparison SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray} Duration = {route.params.Duration}/> */}
             
             {/* <ScrollView contentContainerStyle={styles.contentContainer}>
               <DisplayRecordingsOne/> 
@@ -134,7 +129,7 @@ const styles = StyleSheet.create({
     submitRetry: {
       marginRight: 20,
       marginLeft: 30,
-      marginTop: 10,
+      marginTop: 20,
       marginBottom: 75,
       paddingTop: 20,
       paddingBottom: 20,
@@ -150,7 +145,7 @@ const styles = StyleSheet.create({
     submitReturn: {
       marginRight: 20,
       marginLeft: 10,
-      marginTop: 10,
+      marginTop: 20,
       marginBottom: 75,
       paddingTop: 20,
       paddingBottom: 20,
