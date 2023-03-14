@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, Animated, ScrollView} from 'react-native';
 import { useRoute } from "@react-navigation/native";
 import ComparisonAlgorithmOne from "../components/ComparisonAlgorithmOne";
+import ComparisonAlgorithmTwo from "../components/ComparisonAlgorithmTwo";
 import BeatComparison from "../components/BeatComparison";
 import TempoComparison from "../components/TempoComparison";
 // import DisplayRecordingsOne from "../components/DisplayRecordingsOne";
@@ -53,7 +54,8 @@ const PrerecordedErrorPage = ({navigation}) => {
             <Text> {route.params.Duration}</Text> */}
 
             <View style={styles.ComparisonContainer}>
-              <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
+              {/* <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/> */}
+              <ComparisonAlgorithmTwo/>
             </View>
 
             {/* <BeatComparison SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>

@@ -58,7 +58,7 @@ export default function Home({navigation}){
             {TabButton(currentTab, setCurrentTab, "Pre-recorded Recordings", prerecorded, "PrerecordedPage")}
             {TabButton(currentTab, setCurrentTab, "Live Recordings", liveStreaming, "Teacher")}
             {TabButton(currentTab, setCurrentTab, "Settings", settings, "Settings")}
-            {/* {TabButton(currentTab, setCurrentTab, "Django Tutorial", settings, "DjangoTutorial")} */}
+            {TabButton(currentTab, setCurrentTab, "Django Tutorial", settings, "DjangoTutorial")}
           </View>
 
           <View>

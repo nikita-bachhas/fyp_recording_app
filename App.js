@@ -11,6 +11,7 @@ import LiveTeacherRecording from './pages/LiveTeacherRecording';
 import StudentRecording from './pages/StudentRecording';
 import Score from './pages/Score';
 import Settings from './pages/Settings';
+import DjangoTutorial from './pages/DjangoTutorial';
 
 
 const Stack = createNativeStackNavigator();
@@ -32,6 +33,7 @@ const MyStack = () => {
         <Stack.Screen name="Student" component={StudentRecording} options={{ headerShown: false}}/>
         <Stack.Screen name="Score" component={Score} options={{ headerShown: false}}/>
         <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false}}/>
+        <Stack.Screen name="DjangoTutorial" component={DjangoTutorial} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
