@@ -19,35 +19,10 @@ const ComparisonAlgorithmTwo = (props) => {
       const name = PrerecordedRecordings[t].SongTitle
 
       if (name == SongToPlay){
+        const PrerecordedLeftArray = PrerecordedRecordings[t].LeftArray
+        const PrerecordedRightArray = PrerecordedRecordings[t].RightArray
         const LeftPattern = PrerecordedRecordings[t].LeftPattern
         const RightPattern = PrerecordedRecordings[t].RightPattern
-        const LeftPatternPositions = PrerecordedRecordings[t].LeftPatternPositions
-        const RightPatternPositions = PrerecordedRecordings[t].RightPatternPositions
-        const NoofLeftPatterns = PrerecordedRecordings[t].NoofLeftPatterns
-        const NoofRightPatterns = PrerecordedRecordings[t].NoofRightPatterns
-
-        function getDelta(){
-          var DeltaArray = [];
-      
-          let x = LeftPatternPositions.length;
-          let y = RightPatternPositions.length;
-      
-          var count = 0
-      
-          if (x<y){
-            count = x
-          }
-          else{
-            count = y
-          }
-      
-          for (let i = 0; i < count; i++){
-            let Delta = LeftPatternPositions[i] - RightPatternPositions[i]
-            DeltaArray.push(Delta)
-          } 
-      
-          return(DeltaArray)
-        }
 
         function toString(array){
           var newString = ""
@@ -58,22 +33,6 @@ const ComparisonAlgorithmTwo = (props) => {
         }
 
         function search(txt, pat){
-          let m = pat.length;
-          let n = txt.length;
-          
-          let count = 0;
-          var patternSearch = ""
-      
-          for (let k = 0; k < n; k++){
-            patternSearch = txt.slice(k, k+m);
-            if (patternSearch == pat){
-              count += 1
-            }
-          }
-          return(count)
-        }
-
-        function getPos(txt, pat){
           let m = pat.length;
           let n = txt.length;
       
@@ -89,29 +48,41 @@ const ComparisonAlgorithmTwo = (props) => {
           return(PatternPos)
         }
 
-        function comparePos(DeltaArray, LeftPos, RightPos){
-          let c = DeltaArray.length;
-          var StudentDeltaArray = [];
+        function getDelta(LeftPos, RightPos){
+          var DeltaArray = [];
+      
+          let x = LeftPos.length;
+          let y = RightPos.length;
+      
+          var count = 0
+      
+          if (x<y){
+            count = x
+          }
+          else{
+            count = y
+          }
+      
+          for (let i = 0; i < count; i++){
+            let Delta = LeftPos[i] - RightPos[i]
+            DeltaArray.push(Delta)
+          } 
+
+          return(DeltaArray)
+        }
+
+        function comparePos(DeltaOriginalArray, DeltaImitatedArray){
+          let c = DeltaOriginalArray.length;
+          let d = DeltaImitatedArray.length;
+
           var count = 0
           var posCount = 0
       
-          for (let a = 0; a < c; a++){
-            let StudentDelta = LeftPos[a] - RightPos[a]
-            StudentDeltaArray.push(StudentDelta)
-          }
-      
-          console.log(StudentDeltaArray)
-          let d = StudentDeltaArray.length;
-      
-          if (c<d){
-            count = c
-          }
-          else{
-            count = d
-          }
+          if (c<d){ count = c }
+          else{ count = d }
       
           for (let b = 0; b < count; b++){
-            if (DeltaArray[b] == StudentDeltaArray[b]){
+            if (DeltaOriginalArray[b] == DeltaImitatedArray[b]){
               posCount += 1
             }
           }
@@ -123,24 +94,34 @@ const ComparisonAlgorithmTwo = (props) => {
 
         const finalPercentageCalculation = () => {
 
+          const OringalLeftString = toString(PrerecordedLeftArray)
+          const OriginalRightString = toString(PrerecordedRightArray)
+
           const StudentLeftString = toString(StudentLeftArray)
           const StudentRightString = toString(StudentRightArray)
       
           const LeftPatternString = toString(LeftPattern)
           const RightPatternString = toString(RightPattern)
+
+          const LeftOringalValue = search(OringalLeftString, LeftPatternString)
+          const RightOringalValue = search(OriginalRightString, RightPatternString)
       
-          const LeftValue = search(StudentLeftString, LeftPatternString)
-          const RightValue = search(StudentRightString, RightPatternString)
+          const LeftImitatedValue = search(StudentLeftString, LeftPatternString)
+          const RightImitatedValue = search(StudentRightString, RightPatternString)
+
+          const DeltaOriginalArray = getDelta(LeftOringalValue, RightOringalValue)
+          const DeltaImitatedArray = getDelta(LeftImitatedValue, RightImitatedValue)
       
-          const posSimilarity = comparePos(getDelta(), getPos(StudentLeftString, LeftPatternString), getPos(StudentRightString, RightPatternString))
+          const posSimilarity = comparePos(DeltaOriginalArray, DeltaImitatedArray)
       
-          const LeftPercentage = (LeftValue/NoofLeftPatterns)*100
-          const RightPercentage = (RightValue/NoofRightPatterns)*100
+          const LeftPercentage = (LeftImitatedValue.length/LeftOringalValue.length)*100
+          const RightPercentage = (RightImitatedValue.length/RightOringalValue.length)*100
       
           const finalPercentage = Math.round((LeftPercentage * (1/3)) +  (RightPercentage * (1/3)) + (posSimilarity * (1/3)))
       
-          console.log("Final Calculation: ", finalPercentage, LeftPercentage, RightPercentage)
+          console.log("Final Calculation: ", finalPercentage, LeftPercentage, RightPercentage, posSimilarity)
       
+          // return(finalPercentage)
           return(finalPercentage)
         }
 
