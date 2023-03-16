@@ -25,43 +25,65 @@ function DjangoTutorial() {
         .catch(error => console.error(error))
     }, [])
 
-    // function Create(){
-    //     const [BeatID, setBeatID] = React.useState(null);
-    //     const [UserID, setUserID] = React.useState(null);
-    //     const [DateofAttempt, setDateofAttempt] = React.useState(null);
-    //     const [TimeofAttempt, setTimeofAttempt] = React.useState(null);
-    //     const [ImitationDuration, setImitationDuration] = React.useState(null);
-    //     const [ImitationLeftArray, setImitationLeftArray] = React.useState([]);
-    //     const [ImitationRightArray, setImitationRightArray] = React.useState([]);
-    //     const [ImitationTempo, setImitationTempo] = React.useState(null);
-    //     const [TempoSimiliarity, setTempoSimiliarity] = React.useState(null);
-    //     const [BeatsSimilarity, setBeatsSimilarity] = React.useState(null);
-    //     const [ImitationScore, setImitationScore] = React.useState(null);
+    /*function Create(){
+        const [BeatID, setBeatID] = React.useState(null);
+        const [UserID, setUserID] = React.useState(null);
+        const [DateofAttempt, setDateofAttempt] = React.useState(null);
+        const [TimeofAttempt, setTimeofAttempt] = React.useState(null);
+        const [ImitationDuration, setImitationDuration] = React.useState(null);
+        const [ImitationLeftArray, setImitationLeftArray] = React.useState([]);
+        const [ImitationRightArray, setImitationRightArray] = React.useState([]);
+        const [ImitationTempo, setImitationTempo] = React.useState(null);
+        const [TempoSimiliarity, setTempoSimiliarity] = React.useState(null);
+        const [BeatsSimilarity, setBeatsSimilarity] = React.useState(null);
+        const [ImitationScore, setImitationScore] = React.useState(null);
 
-    //     const InsertData = () => {
-    //         fetch('http://192.168.10.142:8000/PrerecordedRecordingsImitations/', {
-    //             method: "POST",
-    //             headers: {
-    //                 'Content-Type':'application/json'
-    //             },
+         const InsertData = () => {
+             fetch('http://192.168.10.142:8000/PrerecordedRecordingsImitations/', {
+                 method: "POST",
+                 headers: {
+                     'Content-Type':'application/json'
+                    },
                 
-    //             body: JSON.stringify({BeatID:BeatID, UserID:UserID, DateofAttempt:DateofAttempt,
-    //                 TimeofAttempt:TimeofAttempt, ImitationDuration:ImitationDuration, 
-    //                 ImitationLeftArray:ImitationLeftArray, ImitationRightArray:ImitationRightArray,
-    //                  ImitationTempo:ImitationTempo, TempoSimiliarity:TempoSimiliarity,
-    //                 BeatsSimilarity:BeatsSimilarity, ImitationScore:ImitationScore})
-    //         })
-    //         .then(resp => resp.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    //         .catch(error => console.error(error))
-    //     }
+                body: JSON.stringify({BeatID:BeatID, UserID:UserID, DateofAttempt:DateofAttempt,
+                    TimeofAttempt:TimeofAttempt, ImitationDuration:ImitationDuration, 
+                    ImitationLeftArray:ImitationLeftArray, ImitationRightArray:ImitationRightArray,
+                    ImitationTempo:ImitationTempo, TempoSimiliarity:TempoSimiliarity,
+                    BeatsSimilarity:BeatsSimilarity, ImitationScore:ImitationScore})
+            })
+            .then(resp => resp.json())
+            .then(data => {
+                props.navigation.navigate("PrerecordedPage", {data:data})
+            })
+            .catch(error => console.error(error))
+        }
 
-    //     const pushData = () => {
-    //         value = InsertData()
-    //     }
-    // }
+        const data = props.route.params.data
+
+        const updateData = () => {
+            fetch(`http://192.168.10.142:8000/PrerecordedRecordingsImitations/${data.id}/`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify({DateofAttempt:DateofAttempt,TimeofAttempt:TimeofAttempt, 
+                    ImitationDuration:ImitationDuration, ImitationLeftArray:ImitationLeftArray, 
+                    ImitationRightArray:ImitationRightArray, ImitationTempo:ImitationTempo,
+                     TempoSimiliarity:TempoSimiliarity, BeatsSimilarity:BeatsSimilarity, 
+                     ImitationScore:ImitationScore})
+                })
+                .then(resp => resp.json())
+                .then(data => {
+                    props.navigation.navigate("PrerecordedPage", {data:data})
+                })
+                .catch(error => console.error(error))
+            }
+
+         const pushData = () => {
+            value = InsertData()
+            value1 = updateData()
+         }
+    }*/
 
     const renderData = (item) => {
         return (

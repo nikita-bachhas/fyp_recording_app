@@ -3,62 +3,95 @@ import { Text, View, StyleSheet, ImageBackground } from 'react-native';
 import correct from '../assets/correct.png'
 import wrong from '../assets/wrong.png'
 
-const DisplayRecordingsOne = () => {
+const DisplayRecordingsOne = (props) => {
 
-  const beatMatchLeftCount = 80
-  const beatMatchRightCount = 80
-  const averageTotalBeatLeftCount = 100
-  const averageTotalBeatRightCount = 100
+  const beatMatchLeftCount = props.MyData[0]
+  const beatMatchRightCount = props.MyData[1]
+  const averageTotalBeatLeftCount = Math.round(props.MyData[2])
+  const averageTotalBeatRightCount = Math.round(props.MyData[3])
+  const beatMatchLeftPercent = Math.round(props.MyData[4]*100)
+  const beatMatchRightPercent = Math.round(props.MyData[5]*100)
+  const TempoPercent =  props.MyData[6]
 
   const [showCorrectLeft, setShowCorrectLeft] = React.useState(false);
   const [showCorrectRight, setShowCorrectRight] = React.useState(false);
+  const [showTempo, setShowTempo] = React.useState(false);
 
-  var beatMatchLeftPercent = (beatMatchLeftCount/averageTotalBeatLeftCount) * 100
-  var beatMatchRightPercent = (beatMatchRightCount/averageTotalBeatRightCount) * 100
+  const CheckNumberofBeatsLeft = () => {
+    if (beatMatchLeftPercent > 69){
+      console.log("Beat Check Left Correct")
+      React.useEffect(()=>{
+        setShowCorrectLeft(true);
+      }, [])
+    }
+    else{
+      console.log("Beat Check Left Wrong")
+    }
+  }
 
-  // const CheckNumberofBeatsLeft = () => {
-  //   if (beatMatchLeftPercent > 70){
-  //     console.log("Beat Check Left Correct")
-  //     setShowCorrectLeft(!showCorrectLeft);
-  //   }
-  //   else{
-  //     console.log("Beat Check Left Done")
-  //   }
-  // }
+  const CheckNumberofBeatsRight= () => {
+    if (beatMatchRightPercent > 69){
+      console.log("Beat Check Right Correct")
+      React.useEffect(()=>{
+        setShowCorrectRight(true);
+      }, [])
+    }
+    else{
+      console.log("Beat Check Right Wrong")
+    }
+  }
+
+  const CheckTempo = () => {
+    if (TempoPercent < 21){
+      console.log("Tempo Correct", TempoPercent)
+      React.useEffect(()=>{
+        setShowTempo(true);
+      }, [])
+    }
+    else{
+      console.log("Tempo Wrong", TempoPercent)
+    }
+  }
 
   CheckNumberofBeatsLeft();
+  CheckNumberofBeatsRight();
+  CheckTempo();
 
     return(
         <View style={styles.container}>
-            <Text style={[styles.songTitleText]}>Display Recording Errors</Text>
-            <ImageBackground 
-              source={correct} 
-              style={styles.correctContainer}/>
-            <ImageBackground 
-              source={wrong} 
-              style={styles.wrongDownContainer}/>
-            
-            <ImageBackground 
-                source={showCorrectLeft ? correct : wrong} 
-                style={showCorrectLeft ? styles.correctContainer : styles.wrongContainer}>
-            </ImageBackground>
 
-            <ImageBackground 
+            <View style={{flexDirection: 'row'}}>
+                <ImageBackground 
+                  source={showCorrectLeft ? correct : wrong} 
+                  style={showCorrectLeft ? styles.correctContainer : styles.wrongContainer}>
+                </ImageBackground>
+                {beatMatchLeftPercent>70 ? <Text style={styles.explanationText}>Successfully Completed {beatMatchLeftCount} out of {averageTotalBeatLeftCount} beats for left hand</Text>: <Text style={styles.explanationWrongText}>Only Managed to Complete {beatMatchLeftCount} out of {averageTotalBeatLeftCount} beats for left hand</Text>}
+            </View>
+
+            <View style={{flexDirection: 'row'}}> 
+              <ImageBackground 
                 source={showCorrectRight ? correct : wrong} 
                 style={showCorrectRight ? styles.correctContainer : styles.wrongContainer}>
-            </ImageBackground>
+              </ImageBackground>
+              {beatMatchRightPercent>70 ? <Text style={styles.explanationText}>Successfully Completed {beatMatchRightCount} out of {averageTotalBeatRightCount} beats for right hand</Text>: <Text style={styles.explanationWrongText}>Only Managed to Complete {beatMatchRightCount} out of {averageTotalBeatRightCount} beats for right hand</Text>}
+            </View>
+
+            <View style={{flexDirection: 'row'}}> 
+              <ImageBackground 
+                source={showTempo ? correct : wrong} 
+                style={showTempo ? styles.correctContainer : styles.wrongContainer}>
+              </ImageBackground>
+              {TempoPercent < 20 ? <Text style={styles.explanationTextTempo}>Tempo is within 20% range</Text>: <Text style={styles.explanationWrongTextTempo}>Tempo is not within 20% range</Text> }
+            </View>
+
         </View>
     )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 300,
-    maxHeight: 40,
-    marginTop: 50
   },
   songTitleText: {
     color: '#1f3872',
@@ -66,17 +99,36 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,  
   },
+  explanationText: {
+    marginLeft: 10,
+    marginRight: 25,
+    marginTop: 2
+  },
+  explanationTextTempo: {
+    marginLeft: 8,
+    marginRight: 108,
+    marginTop: 10
+  },
   correctContainer:{
     width: 35, 
     height: 35,
-    marginRight:300,
-    marginTop:10
+    marginLeft: 2,
+    marginBottom: 10
+  },
+  explanationWrongText: {
+    marginLeft: 16,
+    marginRight: 25,
+    marginBottom: 5
+  },
+  explanationWrongTextTempo: {
+    marginLeft: 15,
+    marginRight: 95,
+    marginTop: 6
   },
   wrongContainer:{
-    width: 25, 
-    height: 25,
-    marginRight:300,
-    marginTop:10
+    width: 26, 
+    height: 26,
+    marginLeft: 22,
   },
   wrongDownContainer:{
     width: 25, 

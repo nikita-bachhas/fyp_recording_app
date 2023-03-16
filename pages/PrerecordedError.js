@@ -1,9 +1,8 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, Animated, ScrollView} from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, Animated} from 'react-native';
 import { useRoute } from "@react-navigation/native";
 import ComparisonAlgorithmOne from "../components/ComparisonAlgorithmOne";
 import ComparisonAlgorithmTwo from "../components/ComparisonAlgorithmTwo";
-// import DisplayRecordingsOne from "../components/DisplayRecordingsOne";
 import menu from '../assets/menu.png'
 import back from '../assets/back.png'
 
@@ -52,13 +51,9 @@ const PrerecordedErrorPage = ({navigation}) => {
             <Text> {route.params.Duration}</Text> */}
 
             <View style={styles.ComparisonContainer}>
-              {/* <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray} Duration = {route.params.Duration}/>*/}
-              <ComparisonAlgorithmTwo SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/>
+              <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray} Duration = {route.params.Duration}/>
+              {/* <ComparisonAlgorithmTwo SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/> */}
             </View>
-            
-            {/* <ScrollView contentContainerStyle={styles.contentContainer}>
-              <DisplayRecordingsOne/> 
-            </ScrollView> */}
 
             <View style={{flexDirection: 'row'}}>
               <TouchableOpacity
@@ -118,7 +113,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: 'bold',
       fontSize: 20,
-      paddingBottom:70
+      paddingBottom: 10
     },
     submitText: {
       color: '#1f3872',
@@ -170,6 +165,9 @@ const styles = StyleSheet.create({
       height: 20,
       tintColor: 'black',
       marginTop: 40,
+    }, 
+    ComparisonContainer: {
+      height: 530
     },
     ContentContainer:{
       width: 20, 
@@ -177,14 +175,6 @@ const styles = StyleSheet.create({
       tintColor: 'black',
       marginTop: 40,
     }, 
-    ComparisonContainer: {
-      paddingBottom: 70
-    },
-    contentContainer: {
-      width: 380,
-      height: 500,
-      alignItems: 'center'
-    },
   });
 
 export default PrerecordedErrorPage

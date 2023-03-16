@@ -127,8 +127,9 @@ const PrerecordedImitationPage = ({navigation}) => {
 
         <View style={{flexDirection: 'row'}}> 
           <Text style={[styles.timerText]}>Start Tapping In: {counter}</Text>
-          <Text style={[styles.durationText]}>0:0{stopwatch}</Text>
+          {stopwatch<10 ? <Text style={styles.durationText}>0:0{stopwatch}</Text>: <Text style={styles.durationText}>0:{stopwatch}</Text>}
         </View>
+
 
         {/* <Text>{LeftArray}</Text>
         <Text>{RightArray}</Text> */}

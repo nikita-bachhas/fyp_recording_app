@@ -1,10 +1,13 @@
 import React from "react";
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView} from 'react-native';
 import PrerecordedRecordings from '../data/PrerecordedRecordings.json';
 import CircularProgress from 'react-native-circular-progress-indicator';
+import DisplayRecordingsOne from "../components/DisplayRecordingsOne";
 
 const ComparisonAlgorithmOne = (props) => {
   
+  var MyData = []
+
   //Get data dynamically
   const SongToPlay = props.SongToPlay
   // const StudentLeftArray = props.StudentLeftArray
@@ -97,10 +100,13 @@ const ComparisonAlgorithmOne = (props) => {
   
         var beatMatchLeftPercent = beatMatchLeftCount/averageTotalBeatLeftCount
         var beatMatchRightPercent = beatMatchRightCount/averageTotalBeatRightCount
+
+        MyData.push(beatMatchLeftCount, beatMatchRightCount, averageTotalBeatLeftCount, averageTotalBeatRightCount, beatMatchLeftPercent, beatMatchRightPercent)
   
         var BeatSimilarity = Math.round((50 * beatMatchLeftPercent) + (50 * beatMatchRightPercent))
   
         console.log("Variables:", name, BeatSimilarity, beatMatchLeftPercent, beatMatchLeftCount, beatMatchRightPercent, beatMatchRightCount)
+        console.log(MyData)
       }
     }
     return(BeatSimilarity)
@@ -123,9 +129,13 @@ const ComparisonAlgorithmOne = (props) => {
       if (name == SongToPlay){
         const PrerecordedTempo = PrerecordedRecordings[i].Tempo
   
-        var BeatSimilarityPercent = Math.round((StudentTempo/PrerecordedTempo) * 100)
+        var BeatDifferencePercentTempoPercent = ((Math.abs(PrerecordedTempo-StudentTempo))/PrerecordedTempo) * 100
+        var BeatSimilarityPercent = 100 -BeatDifferencePercentTempoPercent
+
+        MyData.push(BeatDifferencePercentTempoPercent)
   
         console.log("Tempo Variables:", name, PrerecordedTempo, BeatSimilarityPercent)
+        console.log(MyData)
       }
     }
     return(BeatSimilarityPercent)
@@ -148,8 +158,10 @@ const ComparisonAlgorithmOne = (props) => {
 
   return(
     <View style={styles.container}>
-      
+
       <Text style={[styles.songTitleText]}>Scoring System One</Text>
+
+      <View  style={styles.progressContainer}>
 
       <CircularProgress
         value={value}
@@ -165,7 +177,49 @@ const ComparisonAlgorithmOne = (props) => {
           count: 50,
           width: 4,
           }}
-      />   
+      /> 
+      </View>
+
+      <ScrollView contentContainerStyle={styles.contentContainer}> 
+      <DisplayRecordingsOne MyData = {MyData}/>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      </ScrollView>
     </View>
   )
 }
@@ -175,17 +229,24 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 300,
-    maxHeight: 40,
-    marginTop: 10
+  },
+  progressContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 95, 
+    paddingBottom: 85
   },
   songTitleText: {
     color: '#1f3872',
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 18, 
-    paddingBottom: 7 
   },
+  contentContainer: {
+    width: 320,
+    paddingTop: 10
+  }
 });
 
 export default ComparisonAlgorithmOne
