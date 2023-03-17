@@ -63,28 +63,10 @@ const DisplayRecordingsOne = (props) => {
     }
   }
 
-  const getLeftPrerecordedBeats = (index) => {
-    var LeftPrerecordedPos = []
-    LeftPrerecordedPos.push(PrerecordedLeftArray[index], PrerecordedLeftArray[index+1], PrerecordedLeftArray[index+2], PrerecordedLeftArray[index+3])
-    return(LeftPrerecordedPos)
-  }
-
-  const getLeftImitatedBeats = (index) => {
-    var LeftImitatedPos = []
-    LeftImitatedPos.push(StudentLeftArray[index], StudentLeftArray[index+1], StudentLeftArray[index+2], StudentLeftArray[index+3])
-    return(LeftImitatedPos)
-  }
-
-  const getRightPrerecordedBeats = (index) => {
-    var RightPrerecordedPos = []
-    RightPrerecordedPos.push(PrerecordedRightArray[index], PrerecordedRightArray[index+1], PrerecordedRightArray[index+2], PrerecordedRightArray[index+3])
-    return(RightPrerecordedPos)
-  }
-
-  const getRightImitatedBeats = (index) => {
-    var RightImitatedPos = []
-    RightImitatedPos.push(StudentRightArray[index], StudentRightArray[index+1], StudentRightArray[index+2], StudentRightArray[index+3])
-    return(RightImitatedPos)
+  const getBeats = (array, index) => {
+    var Pos = []
+    Pos.push(array[index], array[index+1], array[index+2], array[index+3])
+    return(Pos)
   }
 
   const getDuration = (index) => {     
@@ -147,16 +129,15 @@ const DisplayRecordingsOne = (props) => {
           
           <View style={{flexDirection: 'row'}}>
             <Text style={styles.explanationWrongDownBarText}>Original Beat: </Text>
-            <Text style={styles.explanationWrongDownBoldBarText}>{getLeftPrerecordedBeats(leftErrorLine)}</Text>
+            <Text style={styles.explanationWrongDownBoldBarText}>{getBeats(PrerecordedLeftArray, leftErrorLine)}</Text>
             <Text style={styles.explanationWrongDownImitationBarText}>Imitated Beat: </Text>
-            <Text style={styles.explanationWrongDownBoldBarText}>{getLeftImitatedBeats(leftErrorLine)}</Text>
+            <Text style={styles.explanationWrongDownBoldBarText}>{getBeats(StudentLeftArray, leftErrorLine)}</Text>
           </View>
 
           <View style={{flexDirection: 'row'}}>
             <Text style={{ fontSize: 8, marginTop: 4, marginLeft: 30}}>{`\u25CF`}</Text>
-            <Text style={{paddingBottom: 14, marginLeft: 10}}>{compareOriginalAndImitated(getLeftPrerecordedBeats(leftErrorLine), getLeftImitatedBeats(leftErrorLine))}</Text>
+            <Text style={{paddingBottom: 14, marginLeft: 10}}>{compareOriginalAndImitated(getBeats(PrerecordedLeftArray, leftErrorLine), getBeats(StudentLeftArray, leftErrorLine))}</Text>
           </View>
-
        </View>
        );
       });
@@ -178,16 +159,15 @@ const DisplayRecordingsOne = (props) => {
 
           <View style={{flexDirection: 'row'}}>
             <Text style={styles.explanationWrongDownBarText}>Original Beat: </Text>
-            <Text style={styles.explanationWrongDownBoldBarText}>{getRightPrerecordedBeats(rightErrorLine)}</Text>
+            <Text style={styles.explanationWrongDownBoldBarText}>{getBeats(PrerecordedRightArray, rightErrorLine)}</Text>
             <Text style={styles.explanationWrongDownImitationBarText}>Imitated Beat: </Text>
-            <Text style={styles.explanationWrongDownBoldBarText}>{getRightImitatedBeats(rightErrorLine)}</Text>
+            <Text style={styles.explanationWrongDownBoldBarText}>{getBeats(StudentRightArray, rightErrorLine)}</Text>
           </View>
 
           <View style={{flexDirection: 'row'}}>
             <Text style={{ fontSize: 8, marginTop: 4, marginLeft: 30}}>{`\u25CF`}</Text>
-            <Text style={{paddingBottom: 14, marginLeft: 10}}>{compareOriginalAndImitated(getRightPrerecordedBeats(rightErrorLine), getRightImitatedBeats(rightErrorLine))}</Text>
+            <Text style={{paddingBottom: 14, marginLeft: 10}}>{compareOriginalAndImitated(getBeats(PrerecordedRightArray, rightErrorLine), getBeats(StudentRightArray, rightErrorLine))}</Text>
           </View>
-
         </View>
         );
       });
