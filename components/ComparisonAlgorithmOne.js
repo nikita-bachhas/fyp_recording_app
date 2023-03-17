@@ -7,18 +7,20 @@ import DisplayRecordingsOne from "../components/DisplayRecordingsOne";
 const ComparisonAlgorithmOne = (props) => {
   
   var MyData = []
+  var LeftWrongPos = []
+  var RightWrongPos = []
 
   //Get data dynamically
   const SongToPlay = props.SongToPlay
   // const StudentLeftArray = props.StudentLeftArray
   // const StudentRightArray = props.StudentRightArray
   // const Duration = props.Duration
+  var PrerecordedLeftArray = []
+  var PrerecordedRightArray = []
   const StudentLeftArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
   const StudentRightArray = [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  const Duration = 14
-
-  var LeftWrongPos = []
-  var RightWrongPos = []
+  
+  const Duration =  14
 
   const BeatComparison = () => {
     var beatMatchLeftCount = 0
@@ -29,8 +31,8 @@ const ComparisonAlgorithmOne = (props) => {
       
       if (name == SongToPlay){
         
-        const PrerecordedLeftArray = PrerecordedRecordings[i].LeftArray
-        const PrerecordedRightArray = PrerecordedRecordings[i].RightArray
+        PrerecordedLeftArray = PrerecordedRecordings[i].LeftArray
+        PrerecordedRightArray = PrerecordedRecordings[i].RightArray
   
         for (let j = 0; j < PrerecordedLeftArray.length; j++){
           if (PrerecordedLeftArray[j] == StudentLeftArray[j]){
@@ -56,7 +58,7 @@ const ComparisonAlgorithmOne = (props) => {
         } 
   
         for (let k = 0; k< PrerecordedRightArray.length; k++){
-          if (PrerecordedRightArray[k] == StudentLeftArray[k]){
+          if (PrerecordedRightArray[k] == StudentRightArray[k]){
             beatMatchRightCount += 1
           }
           else if ((PrerecordedRightArray[k] == 1)){
@@ -164,44 +166,7 @@ const ComparisonAlgorithmOne = (props) => {
       </View>
 
       <ScrollView contentContainerStyle={styles.contentContainer}> 
-      <DisplayRecordingsOne MyData = {MyData}/>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
+      <DisplayRecordingsOne MyData = {MyData} StudentLeftArray = {StudentLeftArray} StudentRightArray = {StudentRightArray} PrerecordedLeftArray = {PrerecordedLeftArray} PrerecordedRightArray = {PrerecordedRightArray} LeftWrongPos = {LeftWrongPos} RightWrongPos = {RightWrongPos}/>
       </ScrollView>
     </View>
   )
