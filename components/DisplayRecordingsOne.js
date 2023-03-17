@@ -5,7 +5,8 @@ import wrong from '../assets/wrong.png'
 
 const DisplayRecordingsOne = (props) => {
 
-  const beatMatchLeftCount = props.MyData[0]
+  // const beatMatchLeftCount = props.MyData[0]
+  const beatMatchLeftCount = 160
   const beatMatchRightCount = props.MyData[1]
   const averageTotalBeatLeftCount = Math.round(props.MyData[2])
   const averageTotalBeatRightCount = Math.round(props.MyData[3])
@@ -42,7 +43,7 @@ const DisplayRecordingsOne = (props) => {
   }
 
   const CheckTempo = () => {
-    if (TempoPercent < 21){
+    if (TempoPercent < 31){
       console.log("Tempo Correct", TempoPercent)
       React.useEffect(()=>{
         setShowTempo(true);
@@ -68,6 +69,15 @@ const DisplayRecordingsOne = (props) => {
                 {beatMatchLeftPercent>70 ? <Text style={styles.explanationText}>Successfully Completed {beatMatchLeftCount} out of {averageTotalBeatLeftCount} beats for left hand</Text>: <Text style={styles.explanationWrongText}>Only Managed to Complete {beatMatchLeftCount} out of {averageTotalBeatLeftCount} beats for left hand</Text>}
             </View>
 
+            {beatMatchLeftCount!=averageTotalBeatLeftCount ?
+              <View style={{flexDirection: 'row'}}>
+                <ImageBackground 
+                  source={wrong} 
+                  style={styles.wrongDownContainer}>
+                </ImageBackground>
+                <Text style={styles.explanationWrongDownText}>Incorrect beats played at 0:15</Text>
+            </View>: null}
+
             <View style={{flexDirection: 'row'}}> 
               <ImageBackground 
                 source={showCorrectRight ? correct : wrong} 
@@ -81,7 +91,7 @@ const DisplayRecordingsOne = (props) => {
                 source={showTempo ? correct : wrong} 
                 style={showTempo ? styles.correctContainer : styles.wrongContainer}>
               </ImageBackground>
-              {TempoPercent < 20 ? <Text style={styles.explanationTextTempo}>Tempo is within 20% range</Text>: <Text style={styles.explanationWrongTextTempo}>Tempo is not within 20% range</Text> }
+              {TempoPercent < 31 ? <Text style={styles.explanationTextTempo}>Tempo is within 30% range</Text>: <Text style={styles.explanationWrongTextTempo}>Tempo is not within 30% range</Text> }
             </View>
 
         </View>
@@ -130,11 +140,17 @@ const styles = StyleSheet.create({
     height: 26,
     marginLeft: 22,
   },
+  explanationWrongDownText: {
+    marginLeft: 10,
+    marginRight: 35,
+    marginTop: 4
+  },
   wrongDownContainer:{
-    width: 25, 
-    height: 25,
-    marginRight:250,
-    marginTop:10
+    width: 26, 
+    height: 26,
+    marginLeft: 30,
+    // marginRight:250,
+    marginBottom: 8
   },
 });
 

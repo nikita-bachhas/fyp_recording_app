@@ -13,9 +13,12 @@ const ComparisonAlgorithmOne = (props) => {
   // const StudentLeftArray = props.StudentLeftArray
   // const StudentRightArray = props.StudentRightArray
   // const Duration = props.Duration
-  const StudentLeftArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
-  const StudentRightArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  const StudentLeftArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+  const StudentRightArray = [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   const Duration = 14
+
+  var LeftWrongPos = []
+  var RightWrongPos = []
 
   const BeatComparison = () => {
     var beatMatchLeftCount = 0
@@ -30,68 +33,48 @@ const ComparisonAlgorithmOne = (props) => {
         const PrerecordedRightArray = PrerecordedRecordings[i].RightArray
   
         for (let j = 0; j < PrerecordedLeftArray.length; j++){
-          for (let k = 0; k < StudentLeftArray.length; k++){
-            if (j == k){
+          if (PrerecordedLeftArray[j] == StudentLeftArray[j]){
+            beatMatchLeftCount += 1
+          }
+          else if ((PrerecordedLeftArray[j] == 1)){
+            if (PrerecordedLeftArray[j] == StudentLeftArray[j-1]){
               beatMatchLeftCount += 1
-              break
             }
-            else if (j == k + 1){
+            else if (PrerecordedLeftArray[j] == StudentLeftArray[j+1]){
               beatMatchLeftCount += 1
-              break
-            } 
-            else if (j == k + 2){
-              beatMatchLeftCount += 1
-              break
-            } 
-            else if (j == k + 3){
-              beatMatchLeftCount += 1
-              break
-            } 
-            else if (j == k - 1){
-              beatMatchLeftCount += 1
-              break
             }
-            else if (j == k - 2){
+            else if (PrerecordedLeftArray[j] == StudentLeftArray[j-2]){
               beatMatchLeftCount += 1
-              break
             }
-            else if (j == k - 3){
+            else if (PrerecordedLeftArray[j] == StudentLeftArray[j+2]){
               beatMatchLeftCount += 1
-              break
             }
           }
-        }
+          else{
+            LeftWrongPos.push(j)
+          }
+        } 
   
-        for (let m = 0; m < PrerecordedRightArray.length; m++){
-          for (let n = 0; n < StudentRightArray.length; n++){
-            if (m == n){
+        for (let k = 0; k< PrerecordedRightArray.length; k++){
+          if (PrerecordedRightArray[k] == StudentLeftArray[k]){
+            beatMatchRightCount += 1
+          }
+          else if ((PrerecordedRightArray[k] == 1)){
+            if (PrerecordedRightArray[k] == StudentRightArray[k-1]){
               beatMatchRightCount += 1
-              break
             }
-            else if (m == n + 1){
+            else if (PrerecordedRightArray[k] == StudentRightArray[k+1]){
               beatMatchRightCount += 1
-              break
-            } 
-            else if (m == n + 2){
-              beatMatchRightCount += 1
-              break
             }
-            else if (m == n + 3){
+            else if (PrerecordedRightArray[k] == StudentRightArray[k-2]){
               beatMatchRightCount += 1
-              break
             }
-            else if (m == n - 1){
+            else if (PrerecordedRightArray[k] == StudentRightArray[k+2]){
               beatMatchRightCount += 1
-              break
             }
-            else if (m == n - 2){
-              beatMatchRightCount += 1
-              break
-            }
-            else if (m == n - 3){
-              beatMatchRightCount += 1
-              break
-            }
+          }
+          else{
+            RightWrongPos.push(k)
           }
         }
   
@@ -105,7 +88,7 @@ const ComparisonAlgorithmOne = (props) => {
   
         var BeatSimilarity = Math.round((50 * beatMatchLeftPercent) + (50 * beatMatchRightPercent))
   
-        console.log("Variables:", name, BeatSimilarity, beatMatchLeftPercent, beatMatchLeftCount, beatMatchRightPercent, beatMatchRightCount)
+        console.log("Variables:", name, BeatSimilarity, beatMatchLeftPercent, beatMatchLeftCount, beatMatchRightPercent, beatMatchRightCount, LeftWrongPos, RightWrongPos)
         console.log(MyData)
       }
     }

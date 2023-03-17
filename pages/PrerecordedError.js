@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, Animated} fr
 import { useRoute } from "@react-navigation/native";
 import ComparisonAlgorithmOne from "../components/ComparisonAlgorithmOne";
 import ComparisonAlgorithmTwo from "../components/ComparisonAlgorithmTwo";
+import BeatComparison from "../components/BeatComparison"
 import menu from '../assets/menu.png'
 import back from '../assets/back.png'
 
@@ -51,6 +52,7 @@ const PrerecordedErrorPage = ({navigation}) => {
             <Text> {route.params.Duration}</Text> */}
 
             <View style={styles.ComparisonContainer}>
+              {/* <BeatComparison SongToPlay = {route.params.SongTitle}/> */}
               <ComparisonAlgorithmOne SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray} Duration = {route.params.Duration}/>
               {/* <ComparisonAlgorithmTwo SongToPlay = {route.params.SongTitle} StudentLeftArray = {route.params.StudentLeftArray} StudentRightArray = {route.params.StudentRightArray}/> */}
             </View>
