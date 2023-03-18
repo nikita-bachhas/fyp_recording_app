@@ -1,6 +1,5 @@
 import React from "react";
 import { Text, View, StyleSheet, ImageBackground } from 'react-native';
-import Emoji from "react-native-emoji";
 import correct from '../assets/correct.png'
 import wrong from '../assets/wrong.png'
 

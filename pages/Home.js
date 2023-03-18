@@ -42,7 +42,7 @@ export default function Home({navigation}){
             fontWeight: 'bold',
             color: '#1f3872',
             marginTop: 20
-          }}> Full Name </Text>
+          }}> Nikita Bachhas </Text>
 
           <Text style={{
             marginTop: 6,

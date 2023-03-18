@@ -2,24 +2,26 @@ import React from "react";
 import { Text, View, StyleSheet, ScrollView} from 'react-native';
 import PrerecordedRecordings from '../data/PrerecordedRecordings.json';
 import CircularProgress from 'react-native-circular-progress-indicator';
-import DisplayRecordingsOne from "../components/DisplayRecordingsOne";
+import DisplayRecordingsOne from "./DisplayRecordingsOne";
+import DisplayRecordingsTwo from "./DisplayRecordingsTwo";
 
 const ComparisonAlgorithmOne = (props) => {
   
   var MyData = []
   var LeftWrongPos = []
   var RightWrongPos = []
+  var PrerecordedLeftArray = []
+  var PrerecordedRightArray = []
 
   //Get data dynamically
   const SongToPlay = props.SongToPlay
   // const StudentLeftArray = props.StudentLeftArray
   // const StudentRightArray = props.StudentRightArray
   // const Duration = props.Duration
-  var PrerecordedLeftArray = []
-  var PrerecordedRightArray = []
+  
+  //Comment out fake data later
   const StudentLeftArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
   const StudentRightArray = [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  
   const Duration =  14
 
   const BeatComparison = () => {
@@ -166,7 +168,26 @@ const ComparisonAlgorithmOne = (props) => {
       </View>
 
       <ScrollView contentContainerStyle={styles.contentContainer}> 
-      <DisplayRecordingsOne MyData = {MyData} StudentLeftArray = {StudentLeftArray} StudentRightArray = {StudentRightArray} PrerecordedLeftArray = {PrerecordedLeftArray} PrerecordedRightArray = {PrerecordedRightArray} LeftWrongPos = {LeftWrongPos} RightWrongPos = {RightWrongPos}/>
+        {/* <DisplayRecordingsOne MyData = {MyData} StudentLeftArray = {StudentLeftArray} StudentRightArray = {StudentRightArray} PrerecordedLeftArray = {PrerecordedLeftArray} PrerecordedRightArray = {PrerecordedRightArray} LeftWrongPos = {LeftWrongPos} RightWrongPos = {RightWrongPos}/> */}
+        <DisplayRecordingsTwo SongToPlay = {props.SongToPlay}/>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
+          <Text> Hello </Text>
       </ScrollView>
     </View>
   )

@@ -1,10 +1,18 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, TouchableOpacity, ImageBackground, Animated, TouchableHighlight } from 'react-native';
+import { useRoute } from "@react-navigation/native";
 import { Audio } from 'expo-av';
 import * as Sharing from 'expo-sharing';
 
+//Menu and Logo Icons
+import menu from '../assets/menu.png'
+import back from '../assets/back.png'
+
 export default function StudentRecording({ navigation, route }) {
+
+    const routeOne = useRoute();
+
     const [recording, setRecording] = React.useState();
     const [recordings, setRecordings] = React.useState([]);
     const [message, setMessage] = React.useState("");
@@ -59,7 +67,7 @@ export default function StudentRecording({ navigation, route }) {
       return recordings.map((recordingLine, index) => {
         return (
           <View key={index} style={styles.row}>
-            <Text style={styles.fill}>Recording {index + 1} - {recordingLine.duration}</Text>
+            <Text style={styles.fill}>Imitated Recording {index + 1} - {recordingLine.duration}</Text>
             <Button style={styles.button} onPress={() => recordingLine.sound.replayAsync()} title="Play"></Button>
             <Button style={styles.button} onPress={() => Sharing.shareAsync(recordingLine.file)} title="Share"></Button>
             <Button style={styles.button} onPress={() => navigation.push('Score')} title="Compare"></Button> 
@@ -71,11 +79,68 @@ export default function StudentRecording({ navigation, route }) {
   
     return (
       <View style={styles.container}>
+        <View style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            paddingHorizontal: 20,
+            paddingVertical: 20,
+            }}>
+            <TouchableOpacity>
+              <ImageBackground 
+                source={back} 
+                style={styles.backContentContainer}
+                onPress={() => navigation.push('Home')}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <Animated.View style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            paddingHorizontal: 20,
+            paddingVertical: 20,
+            }}>
+            <ImageBackground 
+              source={menu} 
+              style={styles.menuContentContainer}/>
+          </Animated.View>
+
+          <Text style={{
+              fontSize: 30,
+              fontWeight: 'bold',
+              color: 'black',
+              marginRight: 120,
+              paddingTop: 90, 
+            }}>Live Recordings</Text>
+
+        <View style={styles.contentContainer}>
         <Text>{message}</Text>
-        <Button
-          title={recording ? 'Stop Recording' : 'Start Recording'}
-          onPress={recording ? stopRecording : startRecording} />
+
+        <Text style={{
+              fontSize: 18,
+              fontWeight: 'bold',
+              color: 'black',
+              paddingBottom: 20,
+              color: '#1f3872',
+          }}> Imitating {routeOne.params.RecordingTitle}</Text>
+
+          <TouchableHighlight
+              style={styles.submit}
+              onPress={recording ? stopRecording : startRecording}
+              underlayColor='#fff'>
+              <Text style={[styles.submitText]}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
+            </TouchableHighlight>
+
         {getRecordingLines()}
+        <StatusBar style="auto" />
+      </View>
+      
         <View style={styles.bottomView}>
         <Text>NTU Final Year Project 2022-2023</Text>
         <Text>Developed By: Bachhas Nikita</Text>
@@ -112,5 +177,41 @@ export default function StudentRecording({ navigation, route }) {
     },
     button: {
       margin: 16
-    }
+    },
+    menuContentContainer:{
+      width: 20, 
+      height: 20,
+      tintColor: 'black',
+      marginTop: 40,
+    },
+    backContentContainer:{
+      width: 26, 
+      height: 26,
+      tintColor: 'black',
+      marginTop: 37,
+      marginLeft: 320
+    },
+    submit: {
+      backgroundColor: '#fff',
+      borderRadius: 20,
+      borderWidth: 1,
+      borderColor: '#fff',
+      height: 70, 
+      width: 170,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    submitText: {
+      color: '#1f3872',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: 17
+    },
+    contentContainer: {
+      flex: 1,
+      backgroundColor: '#f1f7ff',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: 180
+    },
   });

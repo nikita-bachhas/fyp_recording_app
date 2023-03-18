@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, TouchableOpacity, ImageBackground, Animated, TouchableHighlight} from 'react-native';
 import { Audio } from 'expo-av';
 import * as Sharing from 'expo-sharing';
 import PopupInstructionLive from "../components/PopupInstructionLive";
 
+//Menu and Logo Icons
+import menu from '../assets/menu.png'
+import back from '../assets/back.png'
+
 export default function LiveTeacherRecording({ navigation, route }) {
+
   const [recording, setRecording] = React.useState();
   const [recordings, setRecordings] = React.useState([]);
   const [message, setMessage] = React.useState("");
@@ -63,7 +68,7 @@ export default function LiveTeacherRecording({ navigation, route }) {
           <Text style={styles.fill}>Recording {index + 1} - {recordingLine.duration}</Text>
           <Button style={styles.button} onPress={() => recordingLine.sound.replayAsync()} title="Play"></Button>
           <Button style={styles.button} onPress={() => Sharing.shareAsync(recordingLine.file)} title="Share"></Button>
-          <Button style={styles.button} onPress={() => navigation.push('Student')} title="Recreate"></Button> 
+          <Button style={styles.button} onPress={() => navigation.push('Student', {RecordingTitle: "Recording One"})} title="Recreate"></Button> 
           {/*Proceed to new page to recreate beat*/}
         </View>
       );
@@ -72,12 +77,57 @@ export default function LiveTeacherRecording({ navigation, route }) {
 
   return (
     <View style={styles.container}>
+      <View style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            paddingHorizontal: 20,
+            paddingVertical: 20,
+            }}>
+            <TouchableOpacity>
+              <ImageBackground 
+                source={back} 
+                style={styles.backContentContainer}
+                onPress={() => navigation.push('Home')}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <Animated.View style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            paddingHorizontal: 20,
+            paddingVertical: 20,
+            }}>
+            <ImageBackground 
+              source={menu} 
+              style={styles.menuContentContainer}/>
+          </Animated.View>
+
+          <Text style={{
+              fontSize: 30,
+              fontWeight: 'bold',
+              color: 'black',
+              paddingTop: 90,
+              marginRight: 120
+            }}>Live Recordings</Text>
+
       <PopupInstructionLive/>
       <View style={styles.contentContainer}>
         <Text>{message}</Text>
-        <Button
-          title={recording ? 'Stop Recording' : 'Start Recording'}
-          onPress={recording ? stopRecording : startRecording} />
+
+          <TouchableHighlight
+              style={styles.submit}
+              onPress={recording ? stopRecording : startRecording}
+              underlayColor='#fff'>
+              <Text style={[styles.submitText]}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
+            </TouchableHighlight>
+
         {getRecordingLines()}
         <StatusBar style="auto" />
       </View>
@@ -123,5 +173,34 @@ const styles = StyleSheet.create({
   },
   button: {
     margin: 16
-  }
+  },
+  menuContentContainer:{
+    width: 20, 
+    height: 20,
+    tintColor: 'black',
+    marginTop: 40,
+  },
+  backContentContainer:{
+    width: 26, 
+    height: 26,
+    tintColor: 'black',
+    marginTop: 37,
+    marginLeft: 320
+  },
+  submit: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#fff',
+    height: 70, 
+    width: 170,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  submitText: {
+    color: '#1f3872',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 17
+  },
 });
