@@ -42,6 +42,14 @@ export default function PlayPrerecordedRecording(props) {
       console.log('Playing Sound');
       await sound.playAsync();
     }
+    else if (SongToPlay ==  "Queen Another One Bites the Dust"){
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync( require('../assets/Queen_Another_One_Bites_The_Dust_Percussion_Beat.mp3')
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    }
     else if (SongToPlay ==  "Phil Collins You Can't Hurry Love"){
       console.log('Loading Sound');
       const { sound } = await Audio.Sound.createAsync( require('../assets/you_cant_hurry_love_by_phil_collins.mp3')
