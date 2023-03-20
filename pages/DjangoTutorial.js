@@ -4,7 +4,7 @@ import {Card} from 'react-native-paper'
 
 // const myData = [
 //     {BeatID: 1, BeatName: "Fleetwood Mac Tusk", Duration: "0:14"},
-//     {BeatID: 2, BeatName: "Michael Jackson Billy Jean", Duration: "0:21"},
+//     {BeatID: 2, BeatName: "Michael Jackson Billie Jean", Duration: "0:21"},
 //     {BeatID: 3, BeatName: "Queen Another One Bites the Dust", Duration: "0:17"},
 //     {BeatID: 4, BeatName: "Phil Collins You Can't Hurry Love", Duration: "0:18"}
 // ]

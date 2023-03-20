@@ -29,8 +29,10 @@ const DisplayRecordingsTwo = (props) => {
     var image = null
     var audioPath = null
     const [stopwatch, setStopwatch] = React.useState(0);
+    const [sound, setSound] = React.useState(false);
 
     const startStopwatch = () => {
+        setSound(!sound)
         console.log("Stopwatch started.")
         let interval = setInterval(() => setStopwatch(lastStopwatchCount => lastStopwatchCount + 1), 1000);
         return () => clearInterval(interval)
@@ -49,7 +51,7 @@ const DisplayRecordingsTwo = (props) => {
         if (SongToPlay ==  "Fleetwood Mac Tusk"){
             image = tuskWaveform
         }
-        else if (SongToPlay ==  "Michael Jackson Billy Jean"){
+        else if (SongToPlay ==  "Michael Jackson Billie Jean"){
             image = billieJeanWaveform
             audioPath="../assets/Queen_Another_One_Bites_The_Dust_Percussion_Beat.mp3"
         }
@@ -113,24 +115,23 @@ const DisplayRecordingsTwo = (props) => {
 
             <ImageBackground 
               source={imageSource()} 
-              style={{width: 360, height: 56, marginTop: 10, marginBottom: 20}}>
+              style={{width: 360, height: 56, marginTop: 30, marginBottom: 20}}>
             </ImageBackground>
 
             <View style={styles.progressBarContainer}> 
-                <Progress.Bar progress={value} width={320} color={'#1f3872'}/>
+                <Progress.Bar progress={0.3} width={320} color={'#1f3872'}/>
             </View>
 
             {/* <PlayPrerecordedRecording SongToPlay = {SongToPlay}/> */}
 
-            <View style={{flexDirection: 'row',  marginTop:10}}>
-                <Button title="Play Sound" onPress={startStopwatch} />
-                {Duration<10 ? <Text style={{fontSize: 17, paddingLeft: 50, marginTop:10}}> 0:0{Duration} </Text> : <Text style={{fontSize: 17, paddingLeft: 190, marginRight: 10, marginTop:10}}>0:{Duration}</Text>}
+            <View style={{flexDirection: 'row',  marginTop:15}}>
+                <Button title={sound ? 'Pause Sound' : 'Play Sound'} onPress={startStopwatch} />
+                {Duration<10 ? <Text style={{fontSize: 17, paddingLeft: 50, marginTop:10}}> 0:0{Duration} </Text> : <Text style={{fontSize: 17, paddingLeft: 170, marginRight: 10, marginTop:10}}>0:{Duration}</Text>}
             </View>
 
-            <View style={{flexDirection: 'row', marginTop: 15}}>
-                <Text style={{fontSize: 20, color: 'red', fontWeight: 'bold'}}> ERROR: </Text>
-                <Text style={{fontSize: 20}}> Played too fast</Text>
-            </View>
+            <Text style={{fontSize: 20, color: 'red', fontWeight: 'bold', marginTop: 20, textAlign: 'center'}}> ERROR at 0:06</Text>
+            <Text style={{fontSize: 20, marginTop: 10, textAlign: 'center'}}> Missed a beat at this mark</Text>
+            {/* <Text style={{fontSize: 20, textAlign: 'center', marginTop: 30,}}> Press play sound to listen and understand where you erred beat by beat.</Text> */}
         </View>
     )
 }
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
     fontSize: 20,  
   },
   progressBarContainer: {
-    marginTop:10
+    marginTop:20
   },
 });
 

@@ -73,9 +73,9 @@ const PrerecordedPage = ({navigation}) => {
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Michael Jackson Billy Jean"})}
+              onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Michael Jackson Billie Jean"})}
               underlayColor='#fff'>
-              <Text style={[styles.submitText]}>Michael Jackson: Billy Jean</Text>
+              <Text style={[styles.submitText]}>Michael Jackson: Billie Jean</Text>
             </TouchableHighlight>
           </View>
 

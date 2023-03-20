@@ -34,7 +34,7 @@ export default function PlayPrerecordedRecording(props) {
       console.log('Playing Sound');
       await sound.playAsync();
     }
-    else if (SongToPlay ==  "Michael Jackson Billy Jean"){
+    else if (SongToPlay ==  "Michael Jackson Billie Jean"){
       console.log('Loading Sound');
       const { sound } = await Audio.Sound.createAsync( require('../assets/Michael_Jackson_Billie_Jean_Percussion_Beat.mp3')
       );
