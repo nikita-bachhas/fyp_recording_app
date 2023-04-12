@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 //Importing Different Pages
+import StartPage from './pages/Start';
 import Home from './pages/Home';
 import PrerecordedPage from './pages/Prerecorded';
 import PrerecordedImitationPage from './pages/PrerecordedImitation';
@@ -20,11 +21,12 @@ const MyStack = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={Home}
+          name="StartPage"
+          component={StartPage}
           // options={{title: 'Beats Mobile Application'}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false}}/>
         <Stack.Screen name="PrerecordedPage" component={PrerecordedPage} options={{ headerShown: false}}/>
         <Stack.Screen name="PrerecordedImitationPage" component={PrerecordedImitationPage} options={{ headerShown: false}}/>
         <Stack.Screen name="PrerecordedErrorPage" component={PrerecordedErrorPage} options={{ headerShown: false}}/>

@@ -1,11 +1,12 @@
 import React from "react";
 import { Text, View, StyleSheet, ImageBackground, Button} from 'react-native';
-import PlayPrerecordedRecording from "../components/PlayPrerecordedRecording";
+import PlayPrerecordedRecording from "./PlayPrerecordedRecording";
 import * as Progress from 'react-native-progress';
 
 //Import Waveforms
 import tuskWaveform from '../assets/tuskWaveform.png';
 import billieJeanWaveform from '../assets/billieJeanWaveform.png';
+import queenAnotherOneBitesTheDustWaveform from '../assets/billieJeanWaveform.png';
 import youCantHurryLoveWaveform from '../assets/youCantHurryLoveWaveform.png';
 import breadnbutterWaveform from '../assets/breadnbutterWaveform.png';
 import bigbellbounceWaveform from '../assets/bigbellbounceWaveform.png';

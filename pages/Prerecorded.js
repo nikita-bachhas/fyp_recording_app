@@ -10,23 +10,25 @@ const PrerecordedPage = ({navigation}) => {
     return(
         <View style={styles.container}>
         
-          <View style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            paddingHorizontal: 20,
-            paddingVertical: 20,
-            }}>
-            <TouchableOpacity>
+        <View style={{
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          paddingHorizontal: 20,
+          paddingVertical: 20,
+          }}>
+          <TouchableHighlight onPress={() => {
+            navigation.navigate('Home')}}>
+            <View>
               <ImageBackground 
-                source={back} 
-                style={styles.backContentContainer}
-                onPress={() => navigation.push('Home')}
-              />
-            </TouchableOpacity>
-          </View>
+              source={back}
+              style={styles.backContentContainer}>
+              </ImageBackground>
+            </View>
+          </TouchableHighlight>
+        </View>
 
           <Animated.View style={{
             position: 'absolute',
