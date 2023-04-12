@@ -15,14 +15,14 @@ const StartPage = ({navigation}) => {
             <View style={{flexDirection: 'column'}}>
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('Home')}
+              onPress={() => navigation.push('RegistrationPage')}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Sign Up</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
               style={styles.submit}
-              onPress={() => navigation.push('Home')}
+              onPress={() => navigation.push('LoginPage')}
               underlayColor='#fff'>
               <Text style={[styles.submitText]}>Login</Text>
             </TouchableHighlight>

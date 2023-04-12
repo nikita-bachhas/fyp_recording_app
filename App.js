@@ -4,6 +4,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 //Importing Different Pages
 import StartPage from './pages/Start';
+import RegistrationPage from './pages/Registration';
+import LoginPage from './pages/Login';
 import Home from './pages/Home';
 import PrerecordedPage from './pages/Prerecorded';
 import PrerecordedImitationPage from './pages/PrerecordedImitation';
@@ -26,6 +28,8 @@ const MyStack = () => {
           // options={{title: 'Beats Mobile Application'}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="RegistrationPage" component={RegistrationPage} options={{ headerShown: false}}/>
+        <Stack.Screen name="LoginPage" component={LoginPage} options={{ headerShown: false}}/>
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false}}/>
         <Stack.Screen name="PrerecordedPage" component={PrerecordedPage} options={{ headerShown: false}}/>
         <Stack.Screen name="PrerecordedImitationPage" component={PrerecordedImitationPage} options={{ headerShown: false}}/>
