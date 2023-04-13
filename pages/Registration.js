@@ -1,11 +1,12 @@
 import React from "react";
-import { Text, View, StyleSheet, TextInput, TouchableHighlight, ImageBackground } from 'react-native';
+import { Text, View, StyleSheet, TextInput, TouchableHighlight, ImageBackground, Icon } from 'react-native';
 
 import user from '../assets/user.png'
 import email from '../assets/email.png'
 import idCard from '../assets/idCard.png'
 import shield from '../assets/shield.png'
 import checked from '../assets/checked.png'
+import back from '../assets/back.png'
 
 const RegistrationPage = ({navigation}) => {
     const [nameText, onChangeNameText] = React.useState('Enter Your Name');
@@ -17,20 +18,23 @@ const RegistrationPage = ({navigation}) => {
     return(
         <View style={styles.container}>
 
+            <ImageBackground 
+              source={back} 
+              style={styles.backContentContainer}/>
+
             <Text style={[styles.headingText]}>Create Account</Text>
 
-            <View style={{flexDirection: 'row'}}> 
-                <TextInput
+            <View style={styles.searchSection}>
+              <TextInput
                     style={styles.input}
                     onChangeText={onChangeNameText}
                     value={nameText}/>
-
-                <ImageBackground 
-                source={user} 
-                style={styles.ImageStyle}/>
+              <ImageBackground 
+                  source={user} 
+                  style={styles.ImageStyle}/>
             </View>
 
-            <View style={{flexDirection: 'row'}}> 
+            <View style={styles.searchSection}>          
               <TextInput
                   style={styles.input}
                   onChangeText={onChangeEmailAddressText}
@@ -39,20 +43,20 @@ const RegistrationPage = ({navigation}) => {
               <ImageBackground 
                   source={email} 
                   style={styles.ImageStyle}/>
-             </View>
+            </View>
 
-            <View style={{flexDirection: 'row'}}> 
+            <View style={styles.searchSection}>
               <TextInput
                   style={styles.input}
                   onChangeText={onChangeUsernameText}
                   value={usernameText}/>
                       
-                <ImageBackground 
-                    source={idCard} 
-                    style={styles.ImageStyle}/>
-             </View>
+              <ImageBackground 
+                  source={idCard} 
+                  style={styles.ImageStyle}/>
+            </View>
 
-            <View style={{flexDirection: 'row'}}> 
+            <View style={styles.searchSection}>
               <TextInput
                   style={styles.input}
                   onChangeText={onChangePasswordText}
@@ -61,9 +65,9 @@ const RegistrationPage = ({navigation}) => {
               <ImageBackground 
                   source={shield} 
                   style={styles.ImageStyle}/>
-             </View>
+            </View>
 
-            <View style={{flexDirection: 'row'}}>  
+            <View style={styles.searchSection}>
               <TextInput
                   style={styles.input}
                   onChangeText={onChangeConfirmPasswordText}
@@ -72,7 +76,7 @@ const RegistrationPage = ({navigation}) => {
               <ImageBackground 
                     source={checked} 
                     style={styles.ImageStyle}/>
-             </View>
+            </View>
 
             <TouchableHighlight
               style={styles.submit}
@@ -124,19 +128,20 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 60,
-        width: 310,
+        width: 280,
         margin: 12,
         borderWidth: 1,
         padding: 10,
         borderRadius: 8,
         backgroundColor: '#fff',
+        borderColor: '#fff'
       },
     headingText: {
         color: '#1f3872',
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 30,
-        paddingBottom: 30
+        paddingBottom: 15
       },
     submit: {
         marginRight: 15,
@@ -160,13 +165,29 @@ const styles = StyleSheet.create({
         fontSize: 20
       },
     ImageStyle: {
-        marginTop: 15,
         marginRight: 5,
         height: 50,
         width: 50,
         resizeMode: 'stretch',
         alignItems: 'center',
-    }
+    },
+    searchSection: {
+      flex: 0.125,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#fff',
+      borderRadius: 10,
+      height: 20, 
+      marginTop: 13
+    },
+    backContentContainer:{
+      width: 30, 
+      height: 30,
+      tintColor: 'black',
+      marginRight: 320, 
+      marginBottom: 30
+    },
   });
 
 export default RegistrationPage

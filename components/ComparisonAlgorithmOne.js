@@ -104,9 +104,9 @@ const ComparisonAlgorithmOne = (props) => {
   
     var averageTotalBeatCountPerSecond = (averageTotalBeatCount * 100)/1000
   
-    var weightage = 60/Duration
+    var durationWeightage = 60/Duration
   
-    var StudentTempo = averageTotalBeatCountPerSecond * weightage
+    var StudentTempo = averageTotalBeatCountPerSecond * durationWeightage
   
     console.log("Variables:", averageTotalBeatCount, Duration, StudentTempo)
   
@@ -116,16 +116,16 @@ const ComparisonAlgorithmOne = (props) => {
       if (name == SongToPlay){
         const PrerecordedTempo = PrerecordedRecordings[i].Tempo
   
-        var BeatDifferencePercentTempoPercent = ((Math.abs(PrerecordedTempo-StudentTempo))/PrerecordedTempo) * 100
-        var BeatSimilarityPercent = 100 -BeatDifferencePercentTempoPercent
+        var TempoDifferencePercent = ((Math.abs(PrerecordedTempo-StudentTempo))/PrerecordedTempo) * 100
+        var TempoSimilarityPercent = 100 -TempoDifferencePercent
 
-        MyData.push(BeatDifferencePercentTempoPercent)
+        MyData.push(TempoDifferencePercent)
   
-        console.log("Tempo Variables:", name, PrerecordedTempo, BeatSimilarityPercent)
+        console.log("Tempo Variables:", name, PrerecordedTempo, TempoSimilarityPercent)
         console.log(MyData)
       }
     }
-    return(BeatSimilarityPercent)
+    return(TempoSimilarityPercent)
   }
 
   const finalPercentageCalculation = () => {

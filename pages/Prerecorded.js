@@ -254,7 +254,6 @@ const styles = StyleSheet.create({
       tintColor: 'black',
       marginTop: 37,
       marginLeft: 320
-
     },
     submit: {
       marginRight: 15,
