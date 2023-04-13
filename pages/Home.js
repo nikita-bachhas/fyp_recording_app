@@ -173,9 +173,39 @@ export default function Home({navigation}){
                   paddingLeft: 5
                   }}> Imitation Scores: </Text>
 
-                <Text style={styles.noScoresToDisplayText}> You currently have no scores to display.</Text>
-                <Text style={styles.toGetStartText}> To get started, click on either Pre-recorded Recordings or Live Recordings.</Text>
+                {/* <Text style={styles.noScoresToDisplayText}> You currently have no scores to display.</Text>
+                <Text style={styles.toGetStartText}> To get started, click on either Pre-recorded Recordings or Live Recordings.</Text> */}
+
                 {/* <PreviousRecordingTable/> */}
+
+                <View style={{flexDirection: 'row', marginLeft: 8}}>
+                  <Text style={styles.tableHeading1DisplayText}>Recording</Text>
+                  <Text style={styles.tableHeadingDisplayText}>Type</Text>
+                  <Text style={styles.tableHeadingDisplayText}>Highest Score</Text>
+                </View>
+
+                <View style={{flexDirection: 'row'}}>
+
+                  <View style={{flexDirection: 'column', marginLeft: 10}}>
+                    <Text style={styles.tableContentRecording1DisplayText}>Queen:</Text>
+                    <Text style={styles.tableContentRecordingDisplayText}>Another</Text>
+                    <Text style={styles.tableContentRecordingDisplayText}>One Bites</Text>
+                    <Text style={styles.tableContentRecordingDisplayText}>the Dust</Text>
+
+                  
+                  </View>
+                  <Text style={styles.tableContent1DisplayText}>Pre-recorded</Text>
+                  <Text style={styles.tableContentDisplayText}>74</Text>
+
+                  <TouchableHighlight
+                    style={styles.retrySubmit}
+                    onPress={() => navigation.push('PrerecordedImitationPage', {SongTitle: "Queen Another One Bites the Dust"})}
+                    underlayColor='#fff'>
+                    <Text style={[styles.retrySubmitText]}>Retry</Text>
+                </TouchableHighlight>
+
+                </View>
+
               </View>
             </TouchableHighlight>
           
@@ -302,8 +332,70 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 100,
   }, 
+  tableHeadingDisplayText: {
+    color: 'black',
+    textAlign: 'center',
+    paddingTop: 15,
+    marginRight: 35,
+    color: 'grey',
+  }, 
+  tableHeading1DisplayText: {
+    color: 'black',
+    textAlign: 'center',
+    paddingTop: 15,
+    marginRight: 40,
+    color: 'grey',
+  }, 
+  tableContentDisplayText: {
+    color: 'black',
+    textAlign: 'center',
+    paddingTop: 15,
+    marginRight: 20,
+    fontWeight: 'bold',
+    color: '#1f3872',
+  }, 
+  tableContent1DisplayText: {
+    color: 'black',
+    textAlign: 'center',
+    paddingTop: 15,
+    marginRight: 35,
+    fontWeight: 'bold',
+    color: '#1f3872',
+  },
+  tableContentRecordingDisplayText: {
+    color: 'black',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#1f3872',
+    marginRight: 12
+  }, 
+  tableContentRecording1DisplayText: {
+    color: 'black',
+    textAlign: 'center',
+    marginTop: 10,
+    fontWeight: 'bold',
+    color: '#1f3872',
+    marginRight: 12
+  }, 
   toGetStartText: {
     color: 'black',
     textAlign: 'center',
-  }
+  },
+  retrySubmit: {
+    marginLeft: 22,
+    backgroundColor: '#1f3872',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#1f3872',
+    height: 45, 
+    width: 55,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  retrySubmitText: {
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 15, 
+  }, 
 });

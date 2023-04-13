@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, TextInput, TouchableHighlight, ImageBackground, Icon } from 'react-native';
+import { Text, View, StyleSheet, TextInput, TouchableHighlight, ImageBackground } from 'react-native';
 
 import user from '../assets/user.png'
 import email from '../assets/email.png'
