@@ -6,5 +6,3 @@
 
 ## Project Documents
 1. [YouTube Video](https://youtu.be/dHiK03BskPE)
-2. [Presentation Slides]()
-3. [Final Year Project - Report]()
